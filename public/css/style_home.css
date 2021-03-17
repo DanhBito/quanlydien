@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/*=============== Header ===========*/
+.logo{
+    height: 15vh;
+}
+
+.logo__img{
+    height: 80px;
+    margin: 10px 0px 10px 30px;
+}
+
+
+.logo .logo__logout{
+    margin-top: 60px;
+    margin-right: 30px;
+    position: absolute;
+    right: 30px;
+    font-size: 13px;
+}
+
+.logo .logo__username{
+    margin-top: 20px;
+    margin-right: 30px;
+    position: absolute;
+    right: 30px;
+    text-decoration: #0000ff;
+    font-size: 22px;
+}
+
+.list-group-item{
+    background-color: #1e8bff;
+    color: #fff;
+}
+
+/* =========MAIN============ */
+
+.main{
+    height: 68vh;
+    background: rgb(173,73,73);
+    background: linear-gradient(0deg, rgba(173,73,73,1) 12%, rgba(110,37,111,1) 57%, rgba(26,72,161,1) 100%);
+}
+
