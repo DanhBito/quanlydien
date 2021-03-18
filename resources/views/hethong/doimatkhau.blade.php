@@ -100,8 +100,21 @@
                 <div class="card">
                     <div class="card-header">Đổi Mật Khẩu</div>
                     <div class="card-body">
-                        <form action="" method="" onSubmit="return validatePassword()">
-                        <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $err)
+                                       <li>{{ $err }}</li> 
+                                    @endforeach
+                            </div>
+                        @endif
+
+                        @if (session('thongbao'))
+                            <div class="alert alert-danger">
+                                {{session('thongbao')}}
+                            </div>
+                        @endif 
+                        <form action="{{route('checkDoiMatKhau')}}" method="post">
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
                                 <label for="password_old" class="col-md-4 col-form-label text-md-right">Mật Khẩu Cũ</label>
                                 <div class="col-md-6">
@@ -123,17 +136,20 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 offset-md-6">
+                            <div class="col-md-12 offset-md-5">
                                 <button type="submit" class="btn btn-primary">
                                     Xác Nhận
                                 </button>
+                                <a href="home" class="btn btn-primary ml-4">
+                                    Trở Về
+                                </a>
                             </div>
+                        </form>   
                     </div>
-                    </form>
+                    
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </main>
 

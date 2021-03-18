@@ -41,9 +41,11 @@
     <div id="collapseOne" class="collapse bg-info" aria-labelledby="headingOne" data-parent="#accordion">
 <!--       <div class="card-body"> -->
 		<ul class="list-group list-group-horizontal">
-		    <a href="hethong/doimatkhau" role="button" class="list-group-item bg-info"><i class="fas fa-key" ></i> Thay Đổi Mật Khẩu</a>
-		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-user-shield"></i> Phân Quyền</a>
-		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-user-plus"></i> Tạo Tài Khoản</a>
+		    <a href="doimatkhau" role="button" class="list-group-item bg-info"><i class="fas fa-key" ></i> Thay Đổi Mật Khẩu</a>
+			@if(session('cv_id')===1 || session('cv_id')===2)
+				<a href="" role="button" class="list-group-item bg-info"><i class="fas fa-user-shield"></i> Phân Quyền</a>
+				<a href="dangky" role="button" class="list-group-item bg-info"><i class="fas fa-user-plus"></i> Tạo Tài Khoản</a>
+			@endif
 		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-info"></i> Thông Tin Công Ty</a>
 	 	</ul>
 <!--       </div> -->

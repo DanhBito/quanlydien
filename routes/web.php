@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('login.login');
-})->name('login');
+})->name('login')->middleware('middlewareLogin');
 
 Route::post('checklogin', 'LoginController@checklogin')->name('checklogin');
 
@@ -26,17 +26,22 @@ Route::get('home', function () {
     return view('master');
 })->name('home')->middleware('middlewareCheckLogin');
 
-Route::prefix('hethong')->middleware('middlewareCheckLogin')->group(function () {
-    Route::get('doimatkhau', 'HeThongController@doimatkhau');
+Route::get('doimatkhau','DoiMatKhauController@index')->name('doimatkhau')->middleware('middlewareCheckLogin');
+Route::post('checkDoiMatKhau', 'DoiMatKhauController@checkDoiMatKhau')->name('checkDoiMatKhau');
 
-    Route::get('phanquyen', 'HeThongController@phanquyen');
+Route::get('dangky','DangKyController@index')->name('dangky')->middleware('middlewareCheckLogin');
 
-    Route::get('suathongtin', 'HeThongController@suathongtin');
+// Route::prefix('hethong')->middleware('middlewareCheckLogin')->group(function () {
+//     Route::get('doimatkhau', 'HeThongController@doimatkhau');
 
-    Route::get('taotaikhoan', 'HeThongController@taotaikhoan');
+//     Route::get('phanquyen', 'HeThongController@phanquyen');
 
-    Route::get('thongtin', 'HeThongController@thongtin');
-});
+//     Route::get('suathongtin', 'HeThongController@suathongtin');
+
+//     Route::get('taotaikhoan', 'HeThongController@taotaikhoan');
+
+//     Route::get('thongtin', 'HeThongController@thongtin');
+// });
 
 Route::prefix('chucnang')->middleware('middlewareCheckLogin')->group(function () {
     Route::prefix('baocao')->group(function () {

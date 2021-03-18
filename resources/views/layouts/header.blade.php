@@ -25,17 +25,24 @@
                 aria-expanded="false" aria-controls="collapseFour" role="button"><i class="fas fa-hands-helping"></i> Trợ Giúp</a>
               </li>
             @elseif (session('cv_id')===3 || 4)
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Hệ Thống</a>
+              <li class="nav-item active card-header bg-primary" id="headingOne">
+                <a class="nav-link btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" 
+                aria-controls="collapseOne" role="button"><i class="fas fa-users-cog"></i> Hệ Thống</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Chức Năng</a>
+              <li class="nav-item active card-header bg-primary" id="headingTwo">
+                <a class="nav-link btn-primary"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" 
+                aria-controls="collapseTwo" role="button"><i class="fas fa-coins"></i> Chức Năng</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Trợ Giúp</a>
+              <!-- <li class="nav-item active card-header bg-primary" id="headingThree">
+                <a class="nav-link btn-primary" data-toggle="collapse" data-target="#collapseThree" 
+                aria-expanded="false" aria-controls="collapseThree" role="button"><i class="fas fa-bars"></i> Danh Mục</a>
+              </li> -->
+              <li class="nav-item active card-header bg-primary">
+                <a class="nav-link btn-primary" data-toggle="collapse" data-target="#collapseFour" 
+                aria-expanded="false" aria-controls="collapseFour" role="button"><i class="fas fa-hands-helping"></i> Trợ Giúp</a>
               </li>
             @endif
-            {{-- <li class="nav-item active">
+            <!-- {{-- <li class="nav-item active">
               <a class="nav-link" href="#">Hệ Thống</a>
             </li>
             <li class="nav-item active">
@@ -46,7 +53,7 @@
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#">Trợ Giúp</a>
-            </li> --}}
+            </li> --}} -->
           </ul>
           <ul class="my-2 my-lg-0">
                   
@@ -55,10 +62,10 @@
           </ul>
 
 
-          {{-- <form class="form-inline my-2 my-lg-0">
+          <!-- {{-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-          </form> --}}
+          </form> --}} -->
         </div>
 
       </nav>

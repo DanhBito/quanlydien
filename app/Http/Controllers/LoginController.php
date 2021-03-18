@@ -17,6 +17,7 @@ class LoginController extends Controller
     public function checklogin(Request $request){
         $username = $request['username'];
         $password = $request['password'];
+        $remember = $request['remember'];
 
         $this->validate($request,[
             'password'=>'min:6|max:32'
@@ -25,7 +26,7 @@ class LoginController extends Controller
             'password.max' => 'Mật Khẩu Không Quá 32 ký tự'    
             ]);
 
-        if (Auth::attempt(['username' => $username, 'password' => $password])) {
+        if (Auth::attempt(['username' => $username, 'password' => $password], $remember)) {
             # code...
 
             // $db = DB::table('users')->where('username',$username)->value('id');
