@@ -30,6 +30,7 @@ Route::get('doimatkhau','DoiMatKhauController@index')->name('doimatkhau')->middl
 Route::post('checkDoiMatKhau', 'DoiMatKhauController@checkDoiMatKhau')->name('checkDoiMatKhau');
 
 Route::get('dangky','DangKyController@index')->name('dangky')->middleware('middlewareCheckLogin');
+Route::post('checkDangKy', 'DangKyController@checkDangKy' )->name('checkDangKy');
 
 // Route::prefix('hethong')->middleware('middlewareCheckLogin')->group(function () {
 //     Route::get('doimatkhau', 'HeThongController@doimatkhau');

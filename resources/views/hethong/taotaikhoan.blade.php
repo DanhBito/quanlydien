@@ -81,7 +81,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item">c
                     <a class="nav-link" href="#">Login</a>
                 </li>
                 <li class="nav-item">
@@ -113,12 +113,12 @@
                                 {{session('thongbao')}}
                             </div>
                         @endif 
-                        <form action="" method="">
+                        <form action="{{route('checkDangKy')}}" method="post">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
                                 <label for="fullname" class="col-md-4 col-form-label text-md-right">Họ và Tên</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="fullname" class="form-control" name="fullname" required>
+                                    <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Họ và Tên" required>
                                 </div>
                             </div>
 
@@ -126,9 +126,9 @@
                                 <label for="gender" class="col-md-4 col-form-label text-md-right">Giới tính</label>
                                 <div class="col-md-6">
                                     <!-- <input type="text" id="gender" class="form-control" name="gender" required> -->
-                                    <select name="gender" id="gender" class="form-control" name="gender">
-                                        <option selected>Male</option>
-                                        <option>Female</option>
+                                    <select name="gender" id="gender" class="form-control" name="gender" >
+                                        <option selected value='nam'>Male</option>
+                                        <option value='nu'>Female</option>
                                     </select>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                             <div class="form-group row">
                                 <label for="birth" class="col-md-4 col-form-label text-md-right">Ngày Sinh</label>
                                 <div class="col-md-6">
-                                    <input type="date" id="birth" class="form-control" name="birth" required>
+                                    <input type="date" id="birth" class="form-control" name="birth" min="1940-01-01"  required>
 
                                 </div>
                             </div>
@@ -144,56 +144,62 @@
                             <div class="form-group row">
                                 <label for="address" class="col-md-4 col-form-label text-md-right">Địa Chỉ</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="address" class="form-control" name="address" required>
+                                    <input type="text" id="address" class="form-control" name="address" placeholder="Địa Chỉ" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="cmnd" class="col-md-4 col-form-label text-md-right">Số CMND</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="cmnd" class="form-control" name="cmnd" required>
+                                    <input type="text" id="cmnd" class="form-control" name="cmnd" placeholder="Số CMND" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="phone_number" class="col-md-4 col-form-label text-md-right">Số Điện Thoại</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="phone_number" class="form-control" name="phone_number" required>
+                                    <input type="text" id="phone_number" class="form-control" name="phone_number" placeholder="Số Điện Thoại" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="email" class="form-control" name="email" required>
+                                    <input type="email" id="email" class="form-control" name="email" placeholder="Email" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="date_joining" class="col-md-4 col-form-label text-md-right">Ngày Vào Làm</label>
                                 <div class="col-md-6">
-                                    <input type="date" id="date_joining" class="form-control" name="date_joining" required>
+                                    <input type="date" id="date_joining" class="form-control" name="date_joining" min="1970-01-01"  required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="position" class="col-md-4 col-form-label text-md-right">Chức Vụ</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="position" class="form-control" name="position" required>
+                                    <!-- <input type="text" id="position" class="form-control" name="position" required> -->
+                                    <select name="position" id="position" class="form-control"  >
+                                        <option selected value="nhanvien">Nhân Viên</option>
+                                        <option value="quanli">Quản Lí</option>
+                                        <option value="lanhdao">Lãnh Đạo</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="password_new" class="col-md-4 col-form-label text-md-right">Mật Khẩu</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Mật Khẩu</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password_new" class="form-control" name="password_new" required>
+                                    <input type="password" id="password" class="form-control" name="password"  required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="password_confirm" class="col-md-4 col-form-label text-md-right">Nhập Lại Mật Khẩu</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password_confirm" class="form-control" name="password_confirm" required>
+                                    <input type="password" id="password_confirm" class="form-control" name="password_confirm"  required>
                                 </div>
                             </div>
 
