@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class ChucVu extends Model
 {
     //
-    protected $table = 'chucvu';
+    protected $table = 'department';
     public $timestamps = false; 
 
-    public function nhanvien()
+    public function employee()
     {
         return $this->hasMany( 'App\NhanVien' , 'cv_id', 'id' );
     }

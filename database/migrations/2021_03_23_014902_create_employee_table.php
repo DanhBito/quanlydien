@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNhanvienTable extends Migration
+class CreateEmployeeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNhanvienTable extends Migration
      */
     public function up()
     {
-        Schema::create('nhanvien', function (Blueprint $table) {
+        Schema::create('employee', function (Blueprint $table) {
             $table->id();
             $table->string('nv_ma',10)->unique();
             $table->string('nv_ten',10);
@@ -25,7 +25,7 @@ class CreateNhanvienTable extends Migration
             $table->string('nv_email');
             $table->date('nv_ngayvaolam');
             $table->bigInteger('cv_id')->unsigned();
-            $table->foreign('cv_id')->references('id')->on('chucvu');
+            $table->foreign('cv_id')->references('id')->on('department');
             $table->timestamps();
         });
     }
@@ -37,6 +37,6 @@ class CreateNhanvienTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhanvien');
+        Schema::dropIfExists('employee');
     }
 }

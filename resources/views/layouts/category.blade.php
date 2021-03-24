@@ -46,7 +46,7 @@
 				<a href="" role="button" class="list-group-item bg-info"><i class="fas fa-user-shield"></i> Phân Quyền</a>
 				<a href="dangky" role="button" class="list-group-item bg-info"><i class="fas fa-user-plus"></i> Tạo Tài Khoản</a>
 			@endif
-		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-info"></i> Thông Tin Công Ty</a>
+		    <a href="thongtincongty" role="button" class="list-group-item bg-info"><i class="fas fa-info"></i> Thông Tin Công Ty</a>
 	 	</ul>
 <!--       </div> -->
     </div>

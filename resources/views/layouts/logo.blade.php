@@ -7,7 +7,6 @@
             <ul>
                 @if (session('nv_ten'))
                     <p class="logo__username font-weight-bold text-danger">Chào Mừng {{session('nv_ten')}}</p>
-                   
                 @endif
             </ul>
         </div>

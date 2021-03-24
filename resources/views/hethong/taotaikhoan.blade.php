@@ -118,7 +118,8 @@
                             <div class="form-group row">
                                 <label for="fullname" class="col-md-4 col-form-label text-md-right">Họ và Tên</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Họ và Tên" required>
+                                    <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Họ và Tên" 
+                                    value="{{ Cookie::get('fullname') }}" required>
                                 </div>
                             </div>
 
@@ -127,8 +128,10 @@
                                 <div class="col-md-6">
                                     <!-- <input type="text" id="gender" class="form-control" name="gender" required> -->
                                     <select name="gender" id="gender" class="form-control" name="gender" >
-                                        <option selected value='nam'>Male</option>
-                                        <option value='nu'>Female</option>
+                                        <option <?php if("{{ Cookie::get('gender') }}"=="nam")  echo "selected=\"selected\""; ?>
+                                         value='nam'>Male</option>
+                                        <option <?php if("{{ Cookie::get('gender') }}"=="nu") echo "selected=\"selected\""; ?> 
+                                        name="gender" value='nu'>Female</option>
                                     </select>
                                 </div>
                             </div>
@@ -136,7 +139,8 @@
                             <div class="form-group row">
                                 <label for="birth" class="col-md-4 col-form-label text-md-right">Ngày Sinh</label>
                                 <div class="col-md-6">
-                                    <input type="date" id="birth" class="form-control" name="birth" min="1940-01-01"  required>
+                                    <input type="date" id="birth" class="form-control" name="birth" min="1940-01-01"
+                                    value="{{ Cookie::get('birth') }}"  required>
 
                                 </div>
                             </div>
@@ -144,35 +148,40 @@
                             <div class="form-group row">
                                 <label for="address" class="col-md-4 col-form-label text-md-right">Địa Chỉ</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="address" class="form-control" name="address" placeholder="Địa Chỉ" required>
+                                    <input type="text" id="address" class="form-control" name="address" placeholder="Địa Chỉ"
+                                     value="{{ Cookie::get('address') }}" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="cmnd" class="col-md-4 col-form-label text-md-right">Số CMND</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="cmnd" class="form-control" name="cmnd" placeholder="Số CMND" required>
+                                    <input type="text" id="cmnd" class="form-control" name="cmnd" placeholder="Số CMND" 
+                                    value="{{ Cookie::get('cmnd') }}" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="phone_number" class="col-md-4 col-form-label text-md-right">Số Điện Thoại</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="phone_number" class="form-control" name="phone_number" placeholder="Số Điện Thoại" required>
+                                    <input type="text" id="phone_number" class="form-control" name="phone_number" placeholder="Số Điện Thoại"
+                                     value="{{ Cookie::get('phone_number') }}" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="email" class="form-control" name="email" placeholder="Email" required>
+                                    <input type="email" id="email" class="form-control" name="email" placeholder="Email" 
+                                    value="{{ Cookie::get('email') }}" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="date_joining" class="col-md-4 col-form-label text-md-right">Ngày Vào Làm</label>
                                 <div class="col-md-6">
-                                    <input type="date" id="date_joining" class="form-control" name="date_joining" min="1970-01-01"  required>
+                                    <input type="date" id="date_joining" class="form-control" name="date_joining" min="1970-01-01"
+                                    value="{{ Cookie::get('date_joining') }}"  required>
                                 </div>
                             </div>
 
@@ -181,10 +190,10 @@
                                 <div class="col-md-6">
                                     <!-- <input type="text" id="position" class="form-control" name="position" required> -->
                                     <select name="position" id="position" class="form-control"  >
-                                        <option selected value="nhanvien">Nhân Viên</option>
-                                        <option value="quanli">Quản Lí</option>
-                                        <option value="lanhdao">Lãnh Đạo</option>
-                                        <option value="admin">Admin</option>
+                                        <option  value="nhanvien">Nhân Viên</option>
+                                        <option  value="quanli">Quản Lí</option>
+                                        <option  value="lanhdao">Lãnh Đạo</option>
+                                        <option  value="admin">Admin</option>
                                     </select>
                                 </div>
                             </div>
@@ -197,12 +206,17 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password_confirm" class="col-md-4 col-form-label text-md-right">Nhập Lại Mật Khẩu</label>
+                                <label for="password_confirm" class="col-md-4 col-form-label text-md-right">
+                                    <?php
+                                    if(isset($_COOKIE["position"]))
+                                        var_dump($_COOKIE["position"]);
+                                    ?>
+                                </label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password_confirm" class="form-control" name="password_confirm"  required>
+                                    <input type="password" id="password_confirm" class="form-control" name="password_confirm"   required>
                                 </div>
                             </div>
-
+                            
                             <div class="col-md-12 offset-md-5">
                                 <button type="submit" class="btn btn-primary">
                                     Đăng Ký
@@ -218,8 +232,6 @@
             </div>
         </div>
     </div>
-</main>
-
 </body>
 
 </html>

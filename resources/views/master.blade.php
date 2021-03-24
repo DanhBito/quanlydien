@@ -8,8 +8,10 @@
         @include('layouts.header')
 
         @include('layouts.category')
-        <div class="main">
-
+        <div class="main position-relative">
+            @yield('main')
+            @yield('thongtincongty')
+            @yield('suathongtincongty')
         </div>
 
         @include('layouts.footer')

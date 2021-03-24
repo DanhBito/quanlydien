@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-dark text-center text-lg-start">
+<footer class="bg-dark text-center text-lg-start position-relative">
     <!-- Grid container -->
     <!-- Copyright -->
     <div class="text-center p-3 text-muted" >

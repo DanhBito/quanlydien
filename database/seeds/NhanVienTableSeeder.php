@@ -12,9 +12,9 @@ class NhanVienTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=2; $i < 7; $i++) { 
+        for ($i=2; $i < 5; $i++) { 
             # code...
-            DB::table('nhanvien')->insert([
+            DB::table('employee')->insert([
                 'nv_ma'=>'nv'.$i,
                 'nv_ten'=> 'Duy Danh '.$i ,
                 'nv_gioitinh'=>'nu',

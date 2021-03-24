@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChucvuTable extends Migration
+class CreateInformationCompanyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateChucvuTable extends Migration
      */
     public function up()
     {
-        Schema::create('chucvu', function (Blueprint $table) {
+        Schema::create('information_company', function (Blueprint $table) {
             $table->id();
-            $table->string('cv_ma', 10)->unique();
-            $table->string('cv_ten', 100);
+            $table->string('cty_ten')->unique();
+            $table->string('cty_diachi');
+            $table->string('cty_sdt',10);
+            $table->string('cty_email');
+            $table->string('cty_website');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateChucvuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chucvu');
+        Schema::dropIfExists('information_company');
     }
 }

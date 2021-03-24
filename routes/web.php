@@ -23,7 +23,7 @@ Route::post('checklogin', 'LoginController@checklogin')->name('checklogin');
 Route::get('dangxuat', 'LoginController@dangXuat');
 
 Route::get('home', function () {
-    return view('master');
+    return view('layouts.main');
 })->name('home')->middleware('middlewareCheckLogin');
 
 Route::get('doimatkhau','DoiMatKhauController@index')->name('doimatkhau')->middleware('middlewareCheckLogin');
@@ -32,6 +32,9 @@ Route::post('checkDoiMatKhau', 'DoiMatKhauController@checkDoiMatKhau')->name('ch
 Route::get('dangky','DangKyController@index')->name('dangky')->middleware('middlewareCheckLogin');
 Route::post('checkDangKy', 'DangKyController@checkDangKy' )->name('checkDangKy');
 
+Route::get('thongtincongty', 'ThongTinCongTyController@index')->name('thongtincongty');
+Route::get('suathongtincty', 'ThongTinCongTyController@suathongtincty')->name('suathongtincty');
+Route::post('updatethongtincty', 'ThongTinCongTyController@updatethongtincty')->name('updatethongtincty');
 // Route::prefix('hethong')->middleware('middlewareCheckLogin')->group(function () {
 //     Route::get('doimatkhau', 'HeThongController@doimatkhau');
 
