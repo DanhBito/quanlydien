@@ -41,12 +41,11 @@
     <div id="collapseOne" class="collapse bg-info" aria-labelledby="headingOne" data-parent="#accordion">
 <!--       <div class="card-body"> -->
 		<ul class="list-group list-group-horizontal">
-		    <a href="doimatkhau" role="button" class="list-group-item bg-info"><i class="fas fa-key" ></i> Thay Đổi Mật Khẩu</a>
+		    <a href="{{route('doimatkhau')}}" role="button" class="list-group-item bg-info"><i class="fas fa-key" ></i> Thay Đổi Mật Khẩu</a>
 			@if(session('cv_id')===1 || session('cv_id')===2)
-				<a href="" role="button" class="list-group-item bg-info"><i class="fas fa-user-shield"></i> Phân Quyền</a>
-				<a href="dangky" role="button" class="list-group-item bg-info"><i class="fas fa-user-plus"></i> Tạo Tài Khoản</a>
+				<a href="{{route('dangky')}}" role="button" class="list-group-item bg-info"><i class="fas fa-user-plus"></i> Tạo Tài Khoản</a>
 			@endif
-		    <a href="thongtincongty" role="button" class="list-group-item bg-info"><i class="fas fa-info"></i> Thông Tin Công Ty</a>
+		    <a href="{{route('thongtincongty')}}" role="button" class="list-group-item bg-info"><i class="fas fa-info"></i> Thông Tin Công Ty</a>
 	 	</ul>
 <!--       </div> -->
     </div>
@@ -58,7 +57,7 @@
         <ul class="list-group list-group-horizontal">
 		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-award"></i> Chất Lượng</a>
 		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-weight-hanging"></i> Đơn Vị Tính</a>
-		    <a href="" role="button" class="list-group-item bg-info"><i class="fab fa-fort-awesome-alt"></i> Khu Vực</a>
+		    <a href="{{route('khuvuc')}}" role="button" class="list-group-item bg-info"><i class="fab fa-fort-awesome-alt"></i> Khu Vực</a>
 		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-user-tie"></i> Nhân Viên</a>
 			<a href="" role="button" class="list-group-item bg-info"><i class="fas fa-box-open"></i> Nhà Sản Xuất</a>
 			<a href="" role="button" class="list-group-item bg-info"><i class="fas fa-toolbox"></i> Vật Tư</a>

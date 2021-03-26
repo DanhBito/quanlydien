@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\ChucVu;
+use APP\NhanVien;
 use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
@@ -34,7 +36,8 @@ class LoginController extends Controller
             // return view('layouts.logo');
             // $nameuser = $nameuser['nv_ten'];
              $nameuser= User::find(DB::table('users')->where('username',$username)->value('id'))->nhanvien->toArray();
-            // var_dump($nameuser['nv_ten']);die;
+             $cv_ma =  NhanVien::find($nameuser['cv_id'])->chucvu->toArray();
+            // var_dump($cv_ma['cv_ma']);die;  
             // $nameuser = $nameuser['nv_ten'];
             session()->put( $nameuser);
             return redirect(route('home'));

@@ -131,18 +131,18 @@ class DangKyController extends Controller
         // Cookie::queue($position_cookie);
         // var_dump(Cookie::get('fullname_cookie'));die;
 
-        $this->setCookie($request);
+        // $this->setCookie($request);
 
         $this->validate($request,[
-            'cmnd' => 'digits:10',
-            'birth' => 'before:2015-01-01',
+            'cmnd'              => 'digits:10',
+            'birth'             => 'before:2015-01-01',
             'phone_number' => 'digits:10|starts_with:0',
             'email' => 'required_with:gmail.com',
             'date_joining' => 'before:today',
             'password'=>'min:6|max:32',
             'password_confirm'=>'same:password',
             ],[
-            'cmnd.digits'=> 'Bạn Nhập Số Chứng Minh Nhân Dân Phải Đủ 10 Số !' ,
+            'cmnd.digits' => 'Bạn Nhập Số Chứng Minh Nhân Dân Phải Đủ 10 Số !' ,
             'email' => 'Không Đúng Mẫu Email',
             'birth.before' => 'Ngày Sinh Phải Trước Ngày 01-01-2015',
             'phone_number.digits' => 'Bạn Nhập Số Điện Thoại Phải Đủ 10 Số !',
@@ -152,7 +152,7 @@ class DangKyController extends Controller
             'password.max' => 'Mật Khẩu Mới Không Quá 32 Ký Tự !',   
             'password_confirm.same' => 'Nhập Lại Mật Khẩu Không Trùng Khớp'
             ]);
-
+//switch case
         if ($request->position === 'admin') {
             # code...
             $cv_id = 1;
@@ -168,8 +168,8 @@ class DangKyController extends Controller
         }
 
         // $fullname =$this->stripVN($request->fullname) ;
-        $id_rand = rand(0,9999999); 
-        $nv_ma = 'nv'.$id_rand;
+        $id_rand = rand(0, 9999999); 
+        $nv_ma = 'nv' . $id_rand;
         // $nv_id = DB::table('nhanvien')->where('nv_ma','nv1')->value('id');
         // var_dump($nv_id);die;
         // $nv_id = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $request->fullname)).rand(00,99999);
@@ -179,8 +179,8 @@ class DangKyController extends Controller
         try {
             //code...
             $nhanvien = NhanVien::create([
-                'nv_ma' =>$nv_ma,
-                'nv_ten'=> $request->fullname,
+                'nv_ma' => $nv_ma,
+                'nv_ten' => $request->fullname,
                 'nv_gioitinh' => $request->gender,
                 'nv_ngaysinh' => $request->birth,
                 'nv_diachi' => $request->address,
@@ -191,7 +191,7 @@ class DangKyController extends Controller
                 'cv_id' => $cv_id,
             ]);
     
-            $nhanvien->save();
+            // $nhanvien->save();
 
             try {
                 //code...
@@ -208,7 +208,7 @@ class DangKyController extends Controller
                 return redirect(route('dangky'))->with('thongbao','Thêm Người Dùng Thành Công!');
             } catch (\Exception $e) {
                 //throw $th;
-                var_dump($e.'abc');die;
+                // var_dump($e.'abc');die;
                 return redirect(route('dangky'))->with('thongbao','Thêm Người Dùng Thất Bại 1!');
             }
 
