@@ -13,25 +13,25 @@ class DistrictTableSeeder extends Seeder
     {
         //
         DB::table('districts')->insert([
-            'kv_ten'=>'Tây Bắc Bộ',
+            'dis_name'=>'Tây Bắc Bộ',
         ]);
         DB::table('districts')->insert([
-            'kv_ten'=>'Đông Bắc Bộ',
+            'dis_name'=>'Đông Bắc Bộ',
         ]);
         DB::table('districts')->insert([
-            'kv_ten'=>'Bắc Trung Bộ',
+            'dis_name'=>'Bắc Trung Bộ',
         ]);
         DB::table('districts')->insert([
-            'kv_ten'=>'Nam Trung Bộ',
+            'dis_name'=>'Nam Trung Bộ',
         ]);
         DB::table('districts')->insert([
-            'kv_ten'=>'Tây Nguyên',
+            'dis_name'=>'Tây Nguyên',
         ]);
         DB::table('districts')->insert([
-            'kv_ten'=>'Tây Nam Bộ',
+            'dis_name'=>'Tây Nam Bộ',
         ]);
         DB::table('districts')->insert([
-            'kv_ten'=>'Đông Nam Bộ',
+            'dis_name'=>'Đông Nam Bộ',
         ]);
     }
 }

@@ -15,6 +15,6 @@ class District extends Model
 
     public function producer()
     {
-        return $this->hasMany( 'App\Producer' , 'kv_id', 'id' );
+        return $this->hasMany( 'App\Producer' , 'dis_id', 'id' );
     }
 }

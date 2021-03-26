@@ -10,11 +10,11 @@ class Producer extends Model
     protected $table = 'producers';
 
     protected $fillable = [
-        'nsx_ma', 'nsx_ten', 'nsx_diachi', 'nsx_sdt', 'nsx_email', 'nsx_nhanviendaidien',
+         'pro_name', 'pro_address', 'pro_phone', 'pro_email', 'pro_employee',
     ];
 
     public function district()
     {
-        return $this->belongsTo( 'App\District' , 'kv_id', 'id' );
+        return $this->belongsTo( 'App\District' , 'dis_id', 'id' );
     }
 }

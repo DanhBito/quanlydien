@@ -15,13 +15,12 @@ class ProducerTableSeeder extends Seeder
         for ($i=1; $i < 5; $i++) { 
             # code...       
              DB::table('producers')->insert([
-                'nsx_ma'=>'nsx'.$i,
-                'nsx_ten'=>'NSX Duy Danh'.$i,
-                'nsx_diachi'=>'Khánh Hòa',
-                'nsx_sdt'=> '098765432'.$i,
-                'nsx_email'=> 'abc'.$i,
-                'nsx_nhanviendaidien'=> 'Dương Duy Xèng'.$i,
-                'kv_id'=>$i,
+                'pro_name'=>'pro Duy Danh'.$i,
+                'pro_address'=>'Khánh Hòa',
+                'pro_phone'=> '098765432'.$i,
+                'pro_email'=> 'abc'.$i,
+                'pro_employee'=> 'Dương Duy Xèng'.$i,
+                'dis_id'=>$i,
             ]);
         }
     }

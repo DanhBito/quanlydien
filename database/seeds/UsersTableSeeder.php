@@ -16,10 +16,17 @@ class UsersTableSeeder extends Seeder
         for ($i=0; $i < 5; $i++) { 
             # code...       
              DB::table('users')->insert([
-                'username'=>'user'.$i,
+                'username'=>'username'.$i,
                 'password'=>bcrypt('123456'),
-                'nv_id'=>'1',
-                'remember_token'=> 'user'.$i,
+                'fullname'=> 'Duy Danh '.$i ,
+                'gender'=>'nu',
+                'identification' => '123456789'.$i,
+                'birth'=>'1999-12-20',
+                'address'=>'Khanh Hoa',
+                'phone'=>'012345678'.$i,
+                'email'=>'abc_'.$i.'@gmail.com',
+                'joining'=>'2021-01-01',
+                'dpm_id'=>'1',
             ]);
         }
 

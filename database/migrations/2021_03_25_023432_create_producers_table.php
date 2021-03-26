@@ -15,14 +15,13 @@ class CreateProducersTable extends Migration
     {
         Schema::create('producers', function (Blueprint $table) {
             $table->id();
-            $table->string('nsx_ma',10)->unique();
-            $table->string('nsx_ten',100);
-            $table->string('nsx_diachi');
-            $table->char('nsx_sdt',10);
-            $table->string('nsx_email');
-            $table->string('nsx_nhanviendaidien',100);
-            $table->bigInteger('kv_id')->unsigned();
-            // $table->foreign('kv_id')->references('id')->on('districts');
+            $table->string('pro_name',100);
+            $table->string('pro_address');
+            $table->char('pro_phone',10);
+            $table->string('pro_email');
+            $table->string('pro_employee',100);
+            $table->bigInteger('dis_id')->unsigned();
+            $table->foreign('dis_id')->references('id')->on('districts');
             $table->timestamps();
         });
     }

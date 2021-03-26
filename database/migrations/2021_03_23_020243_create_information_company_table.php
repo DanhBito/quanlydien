@@ -13,13 +13,13 @@ class CreateInformationCompanyTable extends Migration
      */
     public function up()
     {
-        Schema::create('information_company', function (Blueprint $table) {
+        Schema::create('informations', function (Blueprint $table) {
             $table->id();
-            $table->string('cty_ten')->unique();
-            $table->string('cty_diachi');
-            $table->string('cty_sdt',10);
-            $table->string('cty_email');
-            $table->string('cty_website');
+            $table->string('inf_name');
+            $table->string('inf_address');
+            $table->string('inf_phone',10);
+            $table->string('inf_email');
+            $table->string('inf_website');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateInformationCompanyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('information_company');
+        Schema::dropIfExists('informations');
     }
 }

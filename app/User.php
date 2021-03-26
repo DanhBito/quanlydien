@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'nv_id',
+        'usename', 'password', 'fullname', 'gender', 'birth', 'address', 
+        'identification', 'phone', 'email', 'joining', 'dpm_id',
     ];
 
     /**
@@ -40,8 +41,8 @@ class User extends Authenticatable
     protected $table = 'users';
     public $timestamps = false; 
 
-    public function nhanvien()
+    public function deparment()
     {
-        return $this->belongsTo( 'App\NhanVien' , 'nv_id', 'id' );
+        return $this->belongsTo( 'App\Deparment' , 'dpm_id', 'id' );
     }
 }

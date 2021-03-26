@@ -13,21 +13,17 @@ class ChucVuTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('department')->insert([
-            'cv_ma'=>'admin',
-            'cv_ten'=>'admin',
+        DB::table('departments')->insert([
+            'dpm_name'=>'admin',
         ]);
-        DB::table('department')->insert([
-            'cv_ma'=>'ld',
-            'cv_ten'=>'lanh dao',
+        DB::table('departments')->insert([
+            'dpm_name'=>'lanh dao',
         ]);
-        DB::table('department')->insert([
-            'cv_ma'=>'ql',
-            'cv_ten'=>'quan li',
+        DB::table('departments')->insert([
+            'dpm_name'=>'quan li',
         ]);
-        DB::table('department')->insert([
-            'cv_ma'=>'nv',
-            'cv_ten'=>'nhan vien',
+        DB::table('departments')->insert([
+            'dpm_name'=>'nhan vien',
         ]);
     }
 }

@@ -12,12 +12,12 @@ class InforCompanySeeder extends Seeder
     public function run()
     {
         //
-        DB::table('information_company')->insert([
-            'cty_ten' => 'EVN Khánh Hòa',
-            'cty_diachi' => '101 Mai Xuân Thưởng, phường Vĩnh Hải, tp.Nha Trang, tỉnh Khánh Hòa',
-            'cty_sdt' => '0337136172',
-            'cty_email' => '0974619741danh@gmail.com',
-            'cty_website' => 'localhost:8000',
+        DB::table('informations')->insert([
+            'inf_name' => 'EVN Khánh Hòa',
+            'inf_address' => '101 Mai Xuân Thưởng, phường Vĩnh Hải, tp.Nha Trang, tỉnh Khánh Hòa',
+            'inf_phone' => '0337136172',
+            'inf_email' => '0974619741danh@gmail.com',
+            'inf_website' => 'localhost:8000',
         ]);
     }
 }

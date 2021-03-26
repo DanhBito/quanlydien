@@ -15,14 +15,14 @@ class CreateDistrictsTable extends Migration
     {
         Schema::create('districts', function (Blueprint $table) {
             $table->id();
-            $table->string('kv_ten',100);
+            $table->string('dis_name',100);
             $table->timestamps();
         });
 
-        Schema::table('producers', function (Blueprint $table) {
-            // $table->bigInteger('nv_id')->unsigned();
-            $table->foreign('kv_id')->references('id')->on('districts');
-        });
+        // Schema::table('producers', function (Blueprint $table) {
+        //     // $table->bigInteger('nv_id')->unsigned();
+        //     $table->foreign('kv_id')->references('id')->on('districts');
+        // });
     }
 
     /**
