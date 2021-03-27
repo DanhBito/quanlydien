@@ -19,7 +19,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Laravel</title>
+    <title>Đăng Ký</title>
 
     <style>
         @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
@@ -108,39 +108,56 @@
                             </div>
                         @endif
 
-                        @if (session('thongbao'))
+                        @if (session('alert_error'))
                             <div class="alert alert-danger">
-                                {{session('thongbao')}}
+                                {{session('alert_error')}}
                             </div>
-                        @endif 
+                        @elseif(session('alert_success'))
+                             <div class="alert alert-success">
+                                {{session('alert_success')}}
+                            </div>
+                        @endif
                         <form action="{{route('checkDangKy')}}" method="post">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
-                                <label for="fullname" class="col-md-4 col-form-label text-md-right">Họ và Tên</label>
+                                <label  class="col-md-4 col-form-label text-md-right"></label>
+                                <div class="col-md-6">
+                                    <em class="text-danger small text-justify">Những mục đánh dấu (*) bắt buộc nhập</em>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group row">
+                                <label for="fullname" class="col-md-4 col-form-label text-md-right">Họ và Tên (*)</label>
                                 <div class="col-md-6">
                                     <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Họ và Tên" 
-                                    value="{{ Cookie::get('fullname') }}" required>
+                                    value="{{ old('fullname') }}" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="gender" class="col-md-4 col-form-label text-md-right">Giới tính</label>
+                                <label for="gender" class="col-md-4 col-form-label text-md-right">Giới tính (*)</label>
                                 <div class="col-md-6">
                                     <!-- <input type="text" id="gender" class="form-control" name="gender" required> -->
                                     <select name="gender" id="gender" class="form-control" name="gender" >
-                                        <option <?php if("{{ Cookie::get('gender') }}"=="nam")  echo "selected=\"selected\""; ?>
-                                         value='nam'>Male</option>
-                                        <option <?php if("{{ Cookie::get('gender') }}"=="nu") echo "selected=\"selected\""; ?> 
-                                        name="gender" value='nu'>Female</option>
+                                        @if(old('gender') == "nu")
+                                            <option selected name="gender" value='nu'>FeMale</option>
+                                            <option name="gender" value='nam'>Male</option>
+                                        @elseif(old('gender') == "nam")
+                                            <option selected name="gender" value='nam'>Male</option>
+                                            <option name="gender" value='nu'>Female</option>
+                                        @else
+                                            <option name="gender" value='nam'>Male</option>
+                                            <option name="gender" value='nu'>Female</option>
+                                        @endif
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="birth" class="col-md-4 col-form-label text-md-right">Ngày Sinh</label>
+                                <label for="birth" class="col-md-4 col-form-label text-md-right">Ngày Sinh (*)</label>
                                 <div class="col-md-6">
                                     <input type="date" id="birth" class="form-control" name="birth" min="1940-01-01"
-                                    value="{{ Cookie::get('birth') }}"  required>
+                                    value="{{ old('birth') }}"  required>
 
                                 </div>
                             </div>
@@ -149,7 +166,7 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-right">Địa Chỉ</label>
                                 <div class="col-md-6">
                                     <input type="text" id="address" class="form-control" name="address" placeholder="Địa Chỉ"
-                                     value="{{ Cookie::get('address') }}" required>
+                                     value="{{ old('address') }}">
                                 </div>
                             </div>
 
@@ -157,15 +174,15 @@
                                 <label for="cmnd" class="col-md-4 col-form-label text-md-right">Số CMND</label>
                                 <div class="col-md-6">
                                     <input type="text" id="cmnd" class="form-control" name="cmnd" placeholder="Số CMND" 
-                                    value="{{ Cookie::get('cmnd') }}" required>
+                                    value="{{ old('cmnd') }}" >
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="phone_number" class="col-md-4 col-form-label text-md-right">Số Điện Thoại</label>
+                                <label for="phone_number" class="col-md-4 col-form-label text-md-right">Số Điện Thoại (*)</label>
                                 <div class="col-md-6">
                                     <input type="text" id="phone_number" class="form-control" name="phone_number" placeholder="Số Điện Thoại"
-                                     value="{{ Cookie::get('phone_number') }}" required>
+                                     value="{{ old('phone_number') }}" required>
                                 </div>
                             </div>
 
@@ -173,33 +190,94 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                                 <div class="col-md-6">
                                     <input type="email" id="email" class="form-control" name="email" placeholder="Email" 
-                                    value="{{ Cookie::get('email') }}" required>
+                                    value="{{ old('email') }}" >
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="date_joining" class="col-md-4 col-form-label text-md-right">Ngày Vào Làm</label>
+                                <label for="date_joining" class="col-md-4 col-form-label text-md-right">Ngày Vào Làm (*)</label>
                                 <div class="col-md-6">
                                     <input type="date" id="date_joining" class="form-control" name="date_joining" min="1970-01-01"
-                                    value="{{ Cookie::get('date_joining') }}"  required>
+                                    value="{{ old('date_joining') }}"  required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="position" class="col-md-4 col-form-label text-md-right">Chức Vụ</label>
+                                <label for="position" class="col-md-4 col-form-label text-md-right">Chức Vụ (*)</label>
                                 <div class="col-md-6">
                                     <!-- <input type="text" id="position" class="form-control" name="position" required> -->
                                     <select name="position" id="position" class="form-control"  >
-                                        <option  value="nhanvien">Nhân Viên</option>
-                                        <option  value="quanli">Quản Lí</option>
-                                        <option  value="lanhdao">Lãnh Đạo</option>
-                                        <option  value="admin">Admin</option>
+                                        <!-- @if(old('position') == 'nhanvien')
+                                            <option  selected value="nhanvien">Nhân Viên</option>
+                                            <option  value="quanli">Quản Lí</option>
+                                            <option  value="lanhdao">Lãnh Đạo</option>
+                                            <option  value="admin">Admin</option>
+                                        @elseif(old('position') == 'quanli')    
+                                            <option  selected value="quanli">Quản Lí</option>
+                                            <option  value="nhanvien">Nhânv Viên</option>
+                                            <option  value="lanhdao">Lãnh Đạo</option>
+                                            <option  value="admin">Admin</option>
+                                        @elseif(old('position') == 'lanhdao')
+                                            <option  selected value="lanhdao">Lãnh Đạo</option>
+                                            <option  value="quanli">Quản Lí</option>
+                                            <option  value="nhanvien">Nhân Viên</option>
+                                            <option  value="admin">Admin</option>
+                                        @elseif(old('position') == 'admin')
+                                            <option  selected value="admin">Admin</option>
+                                            <option  value="quanli">Quản Lí</option>
+                                            <option  value="lanhdao">Lãnh Đạo</option>
+                                            <option  value="nhanvien">Nhân Viên</option>
+                                        @else
+                                            <option  selected value="admin">Admin</option>
+                                            <option  value="quanli">Quản Lí</option>
+                                            <option  value="lanhdao">Lãnh Đạo</option>
+                                            <option  value="nhanvien">Nhân Viên</option>
+                                        @endif -->
+                                        @switch(old('position'))
+                                            @case('nhanvien')
+                                                <option  selected value="nhanvien">Nhân Viên</option>
+                                                <option  value="quanli">Quản Lí</option>
+                                                <option  value="lanhdao">Lãnh Đạo</option>
+                                                <option  value="admin">Admin</option>
+                                                @break
+                                            @case('quanli')
+                                                <option  selected value="quanli">Quản Lí</option>
+                                                <option  value="nhanvien">Nhânv Viên</option>
+                                                <option  value="lanhdao">Lãnh Đạo</option>
+                                                <option  value="admin">Admin</option>
+                                                @break
+                                            @case('lanhdao')
+                                                <option  selected value="lanhdao">Lãnh Đạo</option>
+                                                <option  value="quanli">Quản Lí</option>
+                                                <option  value="nhanvien">Nhân Viên</option>
+                                                <option  value="admin">Admin</option>
+                                                @break
+                                            @case('admin')
+                                                <option  selected value="admin">Admin</option>
+                                                <option  value="quanli">Quản Lí</option>
+                                                <option  value="lanhdao">Lãnh Đạo</option>
+                                                <option  value="nhanvien">Nhân Viên</option>
+                                            @default
+                                                <option  selected value="admin">Admin</option>
+                                                <option  value="quanli">Quản Lí</option>
+                                                <option  value="lanhdao">Lãnh Đạo</option>
+                                                <option  value="nhanvien">Nhân Viên</option>
+                                        @endswitch
                                     </select>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="form-group row">
+                                <label for="username" class="col-md-4 col-form-label text-md-right">Username (*)</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="username" class="form-control" name="username" placeholder="Username" 
+                                    value="{{ old('username') }}" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">Mật Khẩu</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Mật Khẩu (*)</label>
                                 <div class="col-md-6">
                                     <input type="password" id="password" class="form-control" name="password"  required>
                                 </div>
@@ -207,21 +285,19 @@
 
                             <div class="form-group row">
                                 <label for="password_confirm" class="col-md-4 col-form-label text-md-right">
-                                    <?php
-                                    if(isset($_COOKIE["position"]))
-                                        var_dump($_COOKIE["position"]);
-                                    ?>
+                                    Nhập Lại Mật Khẩu (*)
                                 </label>
                                 <div class="col-md-6">
                                     <input type="password" id="password_confirm" class="form-control" name="password_confirm"   required>
                                 </div>
                             </div>
                             
+                            
                             <div class="col-md-12 offset-md-5">
                                 <button type="submit" class="btn btn-primary">
                                     Đăng Ký
                                 </button>
-                                <a href="home" class="btn btn-primary ml-4">
+                                <a href="{{route('home')}}" class="btn btn-primary ml-4">
                                     Trở Về
                                 </a>
                             </div>

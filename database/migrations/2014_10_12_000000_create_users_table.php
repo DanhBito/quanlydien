@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('gender',3)->default('nam');
             $table->date('birth');
             $table->string('address')->nullable($value=true);
-            $table->string('identification', 20);
-            $table->string('phone', 20)->nullable($value=true);
+            $table->string('identification', 20)->nullable($value=true);
+            $table->string('phone', 20);
             $table->string('email')->nullable($value=true);
             $table->date('joining');
             $table->bigInteger('dpm_id')->unsigned();

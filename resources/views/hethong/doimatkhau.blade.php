@@ -108,11 +108,15 @@
                             </div>
                         @endif
 
-                        @if (session('thongbao'))
+                        @if (session('alert_error'))
                             <div class="alert alert-danger">
-                                {{session('thongbao')}}
+                                {{session('alert_error')}}
                             </div>
-                        @endif 
+                        @elseif(session('alert_success'))
+                             <div class="alert alert-success">
+                                {{session('alert_success')}}
+                            </div>
+                        @endif
                         <form action="{{route('checkDoiMatKhau')}}" method="post">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
@@ -140,7 +144,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Xác Nhận
                                 </button>
-                                <a href="home" class="btn btn-primary ml-4">
+                                <a href="{{route('home')}}" class="btn btn-primary ml-4">
                                     Trở Về
                                 </a>
                             </div>

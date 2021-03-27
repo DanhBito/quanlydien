@@ -15,7 +15,8 @@
             @yield('danhsachkhuvuc')
         </div>
 
-        @include('layouts.footer')
+       
     </div>
+    @include('layouts.footer')
 </body>
 </html>

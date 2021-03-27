@@ -5,8 +5,8 @@
         </div>
         <div class="col-md-5 col-lg-5 ">
             <ul>
-                @if (session('nv_ten'))
-                    <p class="logo__username font-weight-bold text-danger">Chào Mừng {{session('nv_ten')}}</p>
+                @if (session('fullname'))
+                    <p class="logo__username font-weight-bold text-danger">Chào Mừng {{session('fullname')}}</p>
                 @endif
             </ul>
         </div>

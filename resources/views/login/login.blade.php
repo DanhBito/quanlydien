@@ -125,9 +125,9 @@
                             </div>
                          @endif
 
-                        @if (session('thongbao'))
+                        @if (session('alert'))
                             <div class="alert alert-danger">
-                                {{session('thongbao')}}
+                                {{session('alert')}}
                             </div>
                         @endif    
 

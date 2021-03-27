@@ -1,5 +1,5 @@
 
-    <nav class="navbar navbar-expand-lg pt-0 pb-0 navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg pt-0 pb-0 navbar-dark bg-primary position-relative">
         <a class="navbar-brand" href="home"> <i class="fas fa-home"></i> Trang Chủ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -7,7 +7,7 @@
       
         <div class="collapse navbar-collapse accordion bg-primary" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto card bg-primary">
-            @if (session('cv_id')===1 || session('cv_id')===2)
+            @if (session('dpm_id')===1 || session('dpm_id')===2)
               <li class="nav-item active card-header bg-primary" id="headingOne">
                 <a class="nav-link btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" 
                 aria-controls="collapseOne" role="button"><i class="fas fa-users-cog"></i> Hệ Thống</a>
@@ -24,7 +24,7 @@
                 <a class="nav-link btn-primary" data-toggle="collapse" data-target="#collapseFour" 
                 aria-expanded="false" aria-controls="collapseFour" role="button"><i class="fas fa-hands-helping"></i> Trợ Giúp</a>
               </li>
-            @elseif (session('cv_id')===3 || 4)
+            @elseif (session('dpm__id')===3 || 4)
               <li class="nav-item active card-header bg-primary" id="headingOne">
                 <a class="nav-link btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" 
                 aria-controls="collapseOne" role="button"><i class="fas fa-users-cog"></i> Hệ Thống</a>
