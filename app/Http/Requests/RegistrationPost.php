@@ -39,7 +39,7 @@ class RegistrationPost extends FormRequest
     {
         return  [
             'username.unique'              => 'Đã Tồn Tại Tên Đăng Nhập ',
-            'email'                        => 'Không Đúng Mẫu Email',
+            'email.required_with'          => 'Không Đúng Mẫu Email',
             'birth.before'                 => 'Ngày Sinh Phải Trước Ngày 01-01-2015',
             'phone_number.starts_with'     => 'Số Điện Thoại Phải Bắt Đầu Bằng Số 0',
             'date_joining.before_or_equal' => 'Ngày Vào Làm Phải Trước Hoặc Bằng Ngày Hôm Nay !',

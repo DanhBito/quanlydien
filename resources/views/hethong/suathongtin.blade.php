@@ -2,7 +2,7 @@
 
 @extends('master')
 
-@section('suathongtincongty')
+@section('content')
 <main class="login-form position-relative">
     <div class="cotainer">
         <div class="row justify-content-center">
@@ -21,40 +21,40 @@
                             <div class="form-group row">
                                 <label for="text_old" class="col-md-4 col-form-label text-md-right">Tên Công Ty</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="cty_ten" class="form-control" name="cty_ten" placeholder="Tên Công Ty" 
-                                    value="{{Session::get('cty_ten')}}" required>
+                                    <input type="text" id="inf_name" class="form-control" name="inf_name" placeholder="Tên Công Ty" 
+                                    value="{{ $infor_company->inf_name }}" required>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="text_old" class="col-md-4 col-form-label text-md-right">Địa Chỉ</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="cty_diachi" class="form-control" name="cty_diachi" placeholder="Địa Chỉ" 
-                                    value="{{Session::get('cty_diachi')}}" required>                            
+                                    <input type="text" id="inf_address" class="form-control" name="inf_address" placeholder="Địa Chỉ" 
+                                    value="{{ $infor_company->inf_address }}" required>                            
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="text_old" class="col-md-4 col-form-label text-md-right">Số điện thoại</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="cty_sdt" class="form-control" name="cty_sdt" placeholder="Số điện thoại" 
-                                    value="{{Session::get('cty_sdt')}}" required>                             
+                                    <input type="text" id="inf_phone" class="form-control" name="inf_phone" placeholder="Số điện thoại" 
+                                    value="{{ $infor_company->inf_phone }}" required>                             
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="text_old" class="col-md-4 col-form-label text-md-right">Email</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="cty_email" class="form-control" name="cty_email" placeholder="Email" 
-                                    value="{{Session::get('cty_email')}}" required>                            
+                                    <input type="email" id="inf_email" class="form-control" name="inf_email" placeholder="Email" 
+                                    value="{{ $infor_company->inf_email }}" required>                            
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="text_old" class="col-md-4 col-form-label text-md-right">Website</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="cty_website" class="form-control" name="cty_website" placeholder="Website" 
-                                    value="{{Session::get('cty_website')}}" required>                              
+                                    <input type="text" id="inf_website" class="form-control" name="inf_website" placeholder="Website" 
+                                    value="{{ $infor_company->inf_website }}" required>                              
                                 </div>
                             </div>
 

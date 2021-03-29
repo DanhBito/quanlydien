@@ -49,7 +49,16 @@ Route::post('updatethongtincty', 'ThongTinCongTyController@updatethongtincty')->
 // });
 
 Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () {
-    Route::get('khuvuc', 'KhuVucController@index')->name('khuvuc');
+    Route::prefix('khuvuc')->middleware('middlewareCheckLogin')->group(function () {
+        Route::get ('index',        'KhuVucController@index')             ->name('khuvuc');
+        Route::get ('update/{id}',  'KhuVucController@updatedistrict')    ->name('updatedistrict');
+        Route::post('update/{id}', 'KhuVucController@postupdatedistrict') ->name('postupdatedistrict');
+        Route::get ('delete/{id}',  'KhuVucController@deletedistrict')    ->name('deletedistrict');
+        Route::get ('insert',       'KhuVucController@insertdistrict')    ->name('insertdistrict');
+        Route::post ('insert',       'KhuVucController@postinsertdistrict')    ->name('postinsertdistrict');
+    });
+    
+    
 });
 
 

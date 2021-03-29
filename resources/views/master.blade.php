@@ -10,9 +10,7 @@
         @include('layouts.category')
         <div class="main position-relative">
             <!-- @yield('main') -->
-            @yield('thongtincongty')
-            @yield('suathongtincongty')
-            @yield('danhsachkhuvuc')
+            @yield('content')
         </div>
 
        

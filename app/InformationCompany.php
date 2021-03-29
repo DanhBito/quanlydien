@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class ThongTinCongTy extends Model
 {
     //
-    protected $table = 'information_company';
+    protected $table = 'informations';
 
     protected $fillable = [
-        'cty_ten', 'cty_diachi', 'cty_sdt', 'cty_email', 'cty_website',
+        'inf_name', 'inf_address', 'inf_phone', 'inf_email', 'inf_website',
     ];
 
 }
