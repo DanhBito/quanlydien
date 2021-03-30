@@ -16,16 +16,15 @@ class ThongTinCongTyController extends Controller
     }
 
     public function suathongtincty(){
-        $infor_company = DB::table('informations')->first();
+        $infor_company = DB::table('informations')->where('id', 1)->first();
         return view('hethong.suathongtin')->with('infor_company', $infor_company);
     }
 
     public function updatethongtincty(InforPost $request){
         $validated = $request->validated(); 
-        var_dump($request->inf_phone);die;
         try {
             //code...
-            ThongTinCongTy::find(1)->update([
+            DB::table('informations')->where('id', 1)->update([
                 'inf_name'    => $request->inf_name,
                 'inf_address' => $request->inf_address,
                 'inf_phone'   => $request->inf_phone,
