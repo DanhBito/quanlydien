@@ -8,7 +8,7 @@
         @include('layouts.header')
 
         @include('layouts.category')
-        <div class="main position-relative">
+        <div class="main">
             <!-- @yield('main') -->
             @yield('content')
         </div>

@@ -58,7 +58,10 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
         Route::post ('insert',       'KhuVucController@postinsertdistrict')    ->name('postinsertdistrict');
     });
     
-    
+    Route::prefix('nhanvien')->middleware('middlewareCheckLogin')->group(function () {
+        Route::get('index', 'NhanVienController@index')->name('nhanvien');
+        Route::get('index/{id}', 'NhanVienController@viewuser')->name('viewuser');
+    });
 });
 
 
