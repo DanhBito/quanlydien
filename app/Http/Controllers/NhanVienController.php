@@ -13,8 +13,9 @@ class NhanVienController extends Controller
 {
     //
     public function index(){
-        $list_users = DB::table('users')->paginate(5);
 
+        $list_users = DB::table('users')->paginate(5);
+        $todo = User::all();
         foreach($list_users as $list_user){
             switch ($list_user->dpm_id) {
                 case '1':
@@ -32,13 +33,13 @@ class NhanVienController extends Controller
             }
         }
 
-        return view('danhmuc.nhanvien.danhsach')->with('list_users', $list_users);
+        return view('danhmuc.nhanvien.danhsach')->with(compact('list_users'));
     }
 
-    public function viewuser($id)
+    public function viewuser(Request $request)
     {
-        $list_users = DB::table('users')->paginate(5);
-        $data = DB::table('users')->where('id', $id)->first();
-        return view('danhmuc.nhanvien.viewuser')->with('data', $data)->with('list_users', $list_users);
+        $query = $request->get('query');
+        $data = User::where('id',$query)->first();
+        return response()->json($data);
     }
 }
