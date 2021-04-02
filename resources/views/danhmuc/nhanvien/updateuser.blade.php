@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="viewuser" role="dialog">
+<div class="modal fade" id="updateuser" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -8,61 +8,61 @@
           <h4 class="modal-title">Thông tin nhân viên ID: {{$list_user->id}} </h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <div class="modal-body" >
-            <div class="form-group row">
+        <div class="modal-body " >
+            <div class="form-group row ">
                 <label class="col-md-4 text-md-right font-weight-bold" >ID: </label>
-                <span class="col-md-6" id="id"></span>
+                <input type="text" class="col-md-6 form-control" id="id">  
             </div>
                  
-            <div class="form-group">
+            <div class="form-group row">
                  <label class="col-md-4 text-md-right font-weight-bold" >Họ và tên: </label>
-                <span class="col-md-6" id="fullname"></span>
+                <input type="text" class="col-md-6 form-control" id="fullname">
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                  <label class="col-md-4 text-md-right font-weight-bold" >Giới tính :</label>
-                <span class="col-md-6" id="gender"></span>
+                <input type="text" class="col-md-6 form-control" id="gender">
             </div>
             
-            <div class="form-group">
+            <div class="form-group row">
                  <label class="col-md-4 text-md-right font-weight-bold" >Ngày Sinh: </label>
-                <span class="col-md-6"id="birth"></span>
+                <input type="text" class="col-md-6 form-control"  id="birth">
                 
             </div>
             
-            <div class="form-group">
+            <div class="form-group row">
                  <label class="col-md-4 text-md-right font-weight-bold" >Địa Chỉ: </label>
-                <span class="col-md-6" id="address"></span>
+                <input type="text" class="col-md-6 form-control" id="address">
             </div>
             
-            <div class="form-group">
+            <div class="form-group row">
                  <label class="col-md-4 text-md-right font-weight-bold" >Email:</label>
-                <span class="col-md-6" id="email"></span>
+                <input type="text" class="col-md-6 form-control" id="email">
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                  <label class="col-md-4 text-md-right font-weight-bold" >Số ĐT: </label>
-                <span class="col-md-6" id="phone"></span>
+                <input type="text" class="col-md-6 form-control" id="phone">
             </div>
             
-            <div class="form-group">
+            <div class="form-group row">
                  <label class="col-md-4 text-md-right font-weight-bold" >CMND: </label>
-                <span class="col-md-6" id="identification"></span>
+                <input type="text" class="col-md-6 form-control" id="identification">
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                  <label class="col-md-4 text-md-right font-weight-bold" >Ngày Vào Làm: </label>
-                <span class="col-md-6" id="joining"></span>
+                <input type="text" class="col-md-6 form-control" id="joining">
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                  <label class="col-md-4 text-md-right font-weight-bold" >Chức vụ: </label>
-                <span class="col-md-6" id="dpm_id"></span>
+                <input type="text" class="col-md-6 form-control" id="dpm_id">
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Username: </label>
-                <span class="col-md-6" id="username"></span>
+                <input type="text" class="col-md-6 form-control" id="username">
             </div>
     
         </div>

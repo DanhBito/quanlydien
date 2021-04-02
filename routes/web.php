@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::post('checklogin', 'LoginController@checklogin')->name('checklogin');
 
-Route::get('dangxuat', 'LoginController@dangXuat');
+Route::get('dangxuat', 'LoginController@dangXuat')->name('dangxuat');
 
 Route::get('home', function () {
     return view('layouts.main');
@@ -50,17 +50,20 @@ Route::post('updatethongtincty', 'ThongTinCongTyController@updatethongtincty')->
 
 Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () {
     Route::prefix('khuvuc')->middleware('middlewareCheckLogin')->group(function () {
-        Route::get ('index',        'KhuVucController@index')             ->name('khuvuc');
-        Route::get ('update/{id}',  'KhuVucController@updatedistrict')    ->name('updatedistrict');
-        Route::post('update/{id}', 'KhuVucController@postupdatedistrict') ->name('postupdatedistrict');
-        Route::get ('delete/{id}',  'KhuVucController@deletedistrict')    ->name('deletedistrict');
-        Route::get ('insert',       'KhuVucController@insertdistrict')    ->name('insertdistrict');
-        Route::post ('insert',       'KhuVucController@postinsertdistrict')    ->name('postinsertdistrict');
+        Route::get ('index',        'KhuVucController@index')              ->name('khuvuc');
+        Route::get ('update/{id}',  'KhuVucController@updatedistrict')     ->name('updatedistrict');
+        Route::post('update/{id}',  'KhuVucController@postupdatedistrict') ->name('postupdatedistrict');
+        Route::get ('delete/{id}',  'KhuVucController@deletedistrict')     ->name('deletedistrict');
+        Route::get ('insert',       'KhuVucController@insertdistrict')     ->name('insertdistrict');
+        Route::post ('insert',      'KhuVucController@postinsertdistrict') ->name('postinsertdistrict');
     });
     
     Route::prefix('nhanvien')->middleware('middlewareCheckLogin')->group(function () {
         Route::get('index', 'NhanVienController@index')->name('nhanvien');
-        Route::get('index/{id}', 'NhanVienController@viewuser')->name('viewuser');
+
+        Route::get('viewuser/{id}', 'NhanVienController@viewuser')->name('viewuser');
+
+        Route::get('updateuser/{id}', 'NhanVienController@viewuser')->name('updateuser');
     });
 });
 
@@ -104,7 +107,7 @@ Route::get('demo', function () {
 });
 
 Route::get('abc', function(){
-    return view('admin.demo');
+    return view('getdata');
 })->name('abc')->middleware('middlewareCheckLogin');
 
 

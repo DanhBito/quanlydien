@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\User;
 use App\Deparment;
+use Carbon\Carbon;
 
 
 class NhanVienController extends Controller
@@ -15,7 +16,6 @@ class NhanVienController extends Controller
     public function index(){
 
         $list_users = DB::table('users')->paginate(5);
-        $todo = User::all();
         foreach($list_users as $list_user){
             switch ($list_user->dpm_id) {
                 case '1':
@@ -36,10 +36,11 @@ class NhanVienController extends Controller
         return view('danhmuc.nhanvien.danhsach')->with(compact('list_users'));
     }
 
-    public function viewuser(Request $request)
+    public function viewuser($id)
     {
-        $query = $request->get('query');
-        $data = User::where('id',$query)->first();
+        $data = User::where('id',$id)->first();
+
         return response()->json($data);
+
     }
 }

@@ -139,15 +139,15 @@
                                 <div class="col-md-6">
                                     <!-- <input type="text" id="gender" class="form-control" name="gender" required> -->
                                     <select name="gender" id="gender" class="form-control" name="gender" >
-                                        @if(old('gender') == "nu")
-                                            <option selected name="gender" value='nu'>FeMale</option>
-                                            <option name="gender" value='nam'>Male</option>
-                                        @elseif(old('gender') == "nam")
-                                            <option selected name="gender" value='nam'>Male</option>
-                                            <option name="gender" value='nu'>Female</option>
+                                        @if(old('gender') == "Nữ")
+                                            <option selected name="gender" value='Nữ'>FeMale</option>
+                                            <option name="gender" value='Nam'>Male</option>
+                                        @elseif(old('gender') == "Nam")
+                                            <option selected name="gender" value='Nam'>Male</option>
+                                            <option name="gender" value='Nữ'>Female</option>
                                         @else
-                                            <option name="gender" value='nam'>Male</option>
-                                            <option name="gender" value='nu'>Female</option>
+                                            <option name="gender" value='Nam'>Male</option>
+                                            <option name="gender" value='Nữ'>Female</option>
                                         @endif
                                     </select>
                                 </div>

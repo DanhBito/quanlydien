@@ -57,7 +57,7 @@
           </ul>
           <ul class="my-2 my-lg-0">
                   
-                  <a href="dangxuat" class="my-2 my-sm-0 btn btn-dark "><i class="fas fa-sign-out-alt"></i>  Đăng Xuất</a>
+                  <a href="{{route('dangxuat')}}" class="my-2 my-sm-0 btn btn-dark "><i class="fas fa-sign-out-alt"></i>  Đăng Xuất</a>
 
           </ul>
 
