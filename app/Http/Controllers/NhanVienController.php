@@ -43,4 +43,28 @@ class NhanVienController extends Controller
         return response()->json($data);
 
     }
+
+    public function getupdateuser($id){
+        $data = User::where('id',$id)->first();
+        return response()->json($data);
+    }
+
+    public function postupdateuser(Request $request){
+        try {
+        //     //code...
+                    DB::table('users')->where('id', $request->id)->update($request->all());
+            $data = DB::table('users')->select('id')->where('id',$request->id)->first();
+            return response()->json($data);
+        } catch (\Exception $e) {
+            //throw $th;
+            return response()->json($e);
+        }
+        // return response()->json($data);
+    }
+
+    public function deleteuser($id){
+        $data = DB::table('users')->select('fullname')->where('id',$id)->first();
+                DB::table('users')->where('id', $id)->delete();
+        return response()->json($data);
+    }
 }

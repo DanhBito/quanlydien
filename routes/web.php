@@ -59,11 +59,11 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
     });
     
     Route::prefix('nhanvien')->middleware('middlewareCheckLogin')->group(function () {
-        Route::get('index', 'NhanVienController@index')->name('nhanvien');
-
-        Route::get('viewuser/{id}', 'NhanVienController@viewuser')->name('viewuser');
-
-        Route::get('updateuser/{id}', 'NhanVienController@viewuser')->name('updateuser');
+        Route::get('index',           'NhanVienController@index')         ->name('nhanvien');
+        Route::get('viewuser/{id}',   'NhanVienController@viewuser')      ->name('viewuser');
+        Route::get('updateuser/{id}', 'NhanVienController@getupdateuser') ->name('updateuser');
+        Route::post('postupdateuser', 'NhanVienController@postupdateuser')->name('postupdateuser');
+        Route::get('delete/{id}',     'NhanVienController@deleteuser')    ->name('deleteuser');
     });
 });
 
