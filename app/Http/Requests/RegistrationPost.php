@@ -28,7 +28,7 @@ class RegistrationPost extends FormRequest
         return [
             //
             'username'          => 'unique:users,username',
-            'birth'             => 'before:Carbon::now()->subYears(18)',
+            'birth'             => "before:".Carbon::now()->subYears(18),
             'phone_number'      => 'starts_with:0',
             'email'             => 'required_with:gmail.com',
             'date_joining'      => 'before_or_equal:today',
