@@ -1,14 +1,5 @@
 @extends('master')
 @section('content')
-    @if (session('alert_error'))
-        <div class="alert alert-danger">
-            {{session('alert_error')}}
-        </div>
-    @elseif(session('alert_success'))
-            <div class="alert alert-success">
-            {{session('alert_success')}}
-        </div>
-    @endif
 
     <nav class="navbar navbar-light bg-light ">
         <h3 class="d-inline">
@@ -18,6 +9,13 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success  my-sm-0" type="submit">Search</button>
         </form>
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+                @foreach ($errors->all() as $err)
+                   <li>{{ $err }}</li> 
+                @endforeach
+        </div>
+      @endif
     </nav>
 
 

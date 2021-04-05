@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Carbon\Carbon;
 
 class RegistrationPost extends FormRequest
 {
@@ -23,10 +24,11 @@ class RegistrationPost extends FormRequest
      */
     public function rules()
     {
+
         return [
             //
             'username'          => 'unique:users,username',
-            'birth'             => 'before:2015-01-01',
+            'birth'             => 'before:Carbon::now()->subYears(18)',
             'phone_number'      => 'starts_with:0',
             'email'             => 'required_with:gmail.com',
             'date_joining'      => 'before_or_equal:today',
@@ -40,7 +42,7 @@ class RegistrationPost extends FormRequest
         return  [
             'username.unique'              => 'Đã Tồn Tại Tên Đăng Nhập ',
             'email.required_with'          => 'Không Đúng Mẫu Email',
-            'birth.before'                 => 'Ngày Sinh Phải Trước Ngày 01-01-2015',
+            'birth.before'                 => 'Bạn Chưa Đủ 18 Tuổi !',
             'phone_number.starts_with'     => 'Số Điện Thoại Phải Bắt Đầu Bằng Số 0',
             'date_joining.before_or_equal' => 'Ngày Vào Làm Phải Trước Hoặc Bằng Ngày Hôm Nay !',
             'password.min'                 => 'Mật Khẩu Mới Phải Trên 6 Ký Tự !',

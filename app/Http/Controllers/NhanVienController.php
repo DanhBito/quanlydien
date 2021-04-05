@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\User;
 use App\Deparment;
+use App\Http\Requests\RegistrationPost;
 
 
 class NhanVienController extends Controller
@@ -36,7 +37,11 @@ class NhanVienController extends Controller
         return response()->json($data);
     }
 
-    public function postupdateuser(Request $request){
+    public function postupdateuser(RegistrationPost $request){
+
+        $validated = $request->validated();
+
+
         try {
         //     //code...
                     DB::table('users')->where('id', $request->id)->update($request->all());

@@ -8,6 +8,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use App\Producer;
 use App\District;
 
+
 class NhaSanXuatController extends Controller
 {
     //

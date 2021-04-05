@@ -9,6 +9,11 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body " >
+          
+          <div class="alert alert-danger" id="alert-err" >
+            <li id="err" ></li> 
+          </div>
+        
           <form action="#" id="form-update">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group row ">

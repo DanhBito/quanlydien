@@ -5,6 +5,7 @@ $.ajaxSetup({
 });
 
 $(document).ready(function(){
+    $('div#alert-err').hide();
     // View Detail User
     $(".btn-show").click(function(){
         // $.get('viewuser', function(data){
@@ -124,7 +125,7 @@ $(document).ready(function(){
             var identification = $('#u-identification').val();
             var joining        = $('#u-joining').val();
             var postion        = $('#u-postion').val();
-
+            
             $.ajax({
                type :'post',
                url  : 'postupdateuser',
@@ -143,7 +144,15 @@ $(document).ready(function(){
                success:function(data){
                     window.location.reload();
                     alert("Đã Sửa Thông Tin Người Dùng ID: " + data.id);
+               },
+               error:function(data){
+                    $('div#alert-err').show();
+                    $('#err').text(data.responseJSON.errors.birth);
+                    $('#err').text(data.responseJSON.errors.email);
+                    $('#err').text(data.responseJSON.errors.phone);
+                    $('#err').text(data.responseJSON.errors.joining);
                }
+               
             });
         }
         // alert("abc");
