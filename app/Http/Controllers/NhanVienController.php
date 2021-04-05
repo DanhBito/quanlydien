@@ -54,6 +54,7 @@ class NhanVienController extends Controller
         // return response()->json($data);
     }
 
+    
     public function deleteuser($id){
         $data = DB::table('users')->select('fullname')->where('id',$id)->first();
                 DB::table('users')->where('id', $id)->delete();
