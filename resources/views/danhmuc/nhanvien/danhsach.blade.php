@@ -6,8 +6,7 @@
             Quản Lí Nhân Viên
         </h3>
         <form class="form-inline float-right">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success  my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" id="search" placeholder="Search" aria-label="Search">
         </form>
         @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -63,13 +62,15 @@
             
         </table>
     </div>
-    
-    <ul class="pagination float-left ml-3">
-        <a href="{{route('dangky')}}" class="btn btn-primary "><i class="fas fa-plus"></i> Thêm Nhân Viên</a>
-    </ul>
-    <ul class = "pagination justify-content-end" >
-        {{ $list_users->links() }}
-    </ul>
+    <div id="pagination">
+        <ul class="pagination float-left ml-3">
+            <a href="{{route('dangky')}}" class="btn btn-primary "><i class="fas fa-plus"></i> Thêm Nhân Viên</a>
+        </ul>
+        <ul class = "pagination justify-content-end" id="">
+            {{ $list_users->links() }}
+        </ul>
+    </div>
+
 
   @include('danhmuc.nhanvien.viewuser')
   @include('danhmuc.nhanvien.updateuser')

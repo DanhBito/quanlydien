@@ -159,17 +159,35 @@ $(document).ready(function(){
     });
 
     // Search
+    
     $('#search').on("keyup", function(){
-        $search = $(this).val();
-        $.ajax({
-            type: 'GET',
-            url: 'searchuser',
-            data: {
-                'search' : $search
-            },
-            success: function(data){
-                $('tbody').html(data);
-            }
-        });
+        var search = $(this).val();
+        $('#pagination').hide();
+        if(search !== ''){
+            $.ajax({
+                method: "POST",
+                url : 'search',
+                data: {search:search},
+                success:function(data){
+                    console.log(data);
+                    var resultSearch = '';
+                    for(var i = 0; i<data.length; i++){
+                        resultSearch += 
+                            '<tr>' +
+                            '<th width = "5%" scope="row">' + data[i].id + '</th>' +
+                            '<td width = "18%" scope="row">' + data[i].fullname + '</td>' +
+                            '<td width = "7%" scope="row">' + data[i].gender + '</td>' +
+                            '<td width = "10%" scope="row">' + data[i].address + '</td>' +
+                            '<td width = "10%" scope="row">' + data[i].phone + '</td>' +
+                            '<td width = "10%" scope="row">' + data[i].dpm_id + '</td>' +
+                            '<td width = "10%" scope="row">' + data[i].username + '</td>' +
+                            '<td width = "5%"> <button  value="" type="button" class="btn btn-outline-primary btn-show" data-toggle="modal" data-target="#viewuser" > <i class="fas fa-eye" ></i> </button> </td>' +
+                            '<td width = "5%"><button value="" type="button" class="btn btn-outline-warning btn-edit" data-toggle="modal" data-target="#updateuser" > <i class="fas fa-pen"></i> </button> </td>' +
+                            '<td width = "5%"><button value="" type="button" class="btn btn-outline-danger btn-delete"> <i class="fas fa-trash-alt"></i> </button> </td></tr>';
+                    }
+                    $('tbody').html(resultSearch);
+                }
+            });
+        }
     });
 });

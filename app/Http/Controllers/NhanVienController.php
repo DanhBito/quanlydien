@@ -60,7 +60,18 @@ class NhanVienController extends Controller
         return response()->json($data);
     }
 
-    public function searchuser(Request $request){
-
+    public function search(Request $request){
+        $inputSearch = $request->search;
+        $results = DB::table('users')
+                        ->where('fullname',  'LIKE', '%'.$inputSearch.'%')
+                        ->OrWhere('address', 'LIKE', '%'.$inputSearch.'%')
+                        ->OrWhere('phone',   'LIKE', '%'.$inputSearch.'%')
+                        ->OrWhere('id',      'LIKE', '%'.$inputSearch.'%')
+                        ->get();
+        foreach ($results as $result) {
+            $dpm = Deparment::find($result->dpm_id);
+            $result->dpm_id = $dpm->dpm_name;
+        }
+        return response()->json($results);
     }
 }

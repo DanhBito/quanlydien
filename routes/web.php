@@ -64,7 +64,7 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
         Route::get('updateuser/{id}', 'NhanVienController@getupdateuser');
         Route::post('postupdateuser', 'NhanVienController@postupdateuser');
         Route::get('delete/{id}',     'NhanVienController@deleteuser');
-        Route::get('searchuser',      'NhanVienController@searchuser') ;
+        Route::post('search',          'NhanVienController@search') ;
     });
 
     Route::prefix('nhasanxuat')->group(function () {
