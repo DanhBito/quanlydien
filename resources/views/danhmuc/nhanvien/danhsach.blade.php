@@ -9,6 +9,18 @@
             {{session('alert_success')}}
         </div>
     @endif
+
+    <nav class="navbar navbar-light bg-light ">
+        <h3 class="d-inline">
+            Quản Lí Nhân Viên
+        </h3>
+        <form class="form-inline float-right">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success  my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+
     <div class="table-responsive">
         <table class="table table-bordered text-center">
             <form action="#">
@@ -66,6 +78,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="{{ asset('js/danhsachjs.js') }}"></script>
+<script src="{{ asset('js/nhanvien.js') }}"></script>
 
 @endsection

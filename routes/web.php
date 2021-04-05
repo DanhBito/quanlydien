@@ -49,7 +49,7 @@ Route::post('updatethongtincty', 'ThongTinCongTyController@updatethongtincty')->
 // });
 
 Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () {
-    Route::prefix('khuvuc')->middleware('middlewareCheckLogin')->group(function () {
+    Route::prefix('khuvuc')->group(function () {
         Route::get ('index',        'KhuVucController@index')              ->name('khuvuc');
         Route::get ('update/{id}',  'KhuVucController@updatedistrict')     ->name('updatedistrict');
         Route::post('update/{id}',  'KhuVucController@postupdatedistrict') ->name('postupdatedistrict');
@@ -58,12 +58,20 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
         Route::post ('insert',      'KhuVucController@postinsertdistrict') ->name('postinsertdistrict');
     });
     
-    Route::prefix('nhanvien')->middleware('middlewareCheckLogin')->group(function () {
-        Route::get('index',           'NhanVienController@index')         ->name('nhanvien');
-        Route::get('viewuser/{id}',   'NhanVienController@viewuser')      ->name('viewuser');
-        Route::get('updateuser/{id}', 'NhanVienController@getupdateuser') ->name('updateuser');
-        Route::post('postupdateuser', 'NhanVienController@postupdateuser')->name('postupdateuser');
-        Route::get('delete/{id}',     'NhanVienController@deleteuser')    ->name('deleteuser');
+    Route::prefix('nhanvien')->group(function () {
+        Route::get('index',           'NhanVienController@index')->name('nhanvien');
+        Route::get('viewuser/{id}',   'NhanVienController@viewuser') ;
+        Route::get('updateuser/{id}', 'NhanVienController@getupdateuser');
+        Route::post('postupdateuser', 'NhanVienController@postupdateuser');
+        Route::get('delete/{id}',     'NhanVienController@deleteuser');
+        Route::get('searchuser',      'NhanVienController@searchuser') ;
+    });
+
+    Route::prefix('nhasanxuat')->group(function () {
+        Route::get('index',              'NhaSanXuatController@index')->name('nhasanxuat');
+        Route::get('edit/{id}',          'NhaSanXuatController@getedit');
+        Route::post('postupdatproducer', 'NhaSanXuatController@postupdatproducer');
+        Route::get('delete/{id}',        'NhaSanXuatController@deleteproducer');
     });
 });
 

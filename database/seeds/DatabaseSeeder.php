@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // // $this->call(NhanVienTableSeeder::class);
         // $this->call(UsersTableSeeder::class);
         // $this->call(InforCompanySeeder::class);
-        $this->call(DistrictTableSeeder::class);
+        // $this->call(DistrictTableSeeder::class);
         // $this->call(ProducerTableSeeder::class);
     }
 }

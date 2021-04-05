@@ -1,5 +1,15 @@
 @extends('master')
 @section('content')
+
+    <nav class="navbar navbar-light bg-light ">
+        <h3 class="d-inline">
+            Quản Lí Khu Vực
+        </h3>
+        <form class="form-inline float-right">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success  my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
     @if (session('alert_error'))
         <div class="alert alert-danger">
             {{session('alert_error')}}

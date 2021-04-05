@@ -112,6 +112,7 @@ $(document).ready(function(){
     });
 
     $('#form-update').submit(function(){
+        window.location.reload();
         if(confirm('Bạn Có Chắc Chắn Muốn Sửa Không?')){
             var id             = $('#u-id').val();
             var fullname       = $('#u-ullname').val();
@@ -146,5 +147,20 @@ $(document).ready(function(){
             });
         }
         // alert("abc");
+    });
+
+    // Search
+    $('#search').on("keyup", function(){
+        $search = $(this).val();
+        $.ajax({
+            type: 'GET',
+            url: 'searchuser',
+            data: {
+                'search' : $search
+            },
+            success: function(data){
+                $('tbody').html(data);
+            }
+        });
     });
 });

@@ -12,7 +12,7 @@ class KhuVucController extends Controller
 {
     //
     public function index(){
-        $list_districtes = DB::table('districts')->paginate(10);
+        $list_districtes = DB::table('districts')->paginate(5);
         // var_dump($list_district);die;
         // session()->put($list_district);
         return view('danhmuc.khuvuc.danhsach')->with('list_districtes', $list_districtes);
