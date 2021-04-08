@@ -9,7 +9,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body " >
-          <form action="#" id="form-update">
+          <form action="#" id="form-create">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group row">

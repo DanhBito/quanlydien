@@ -12,15 +12,16 @@ class ProducerTableSeeder extends Seeder
     public function run()
     {
         //
-        for ($i=1; $i < 5; $i++) { 
+        $faker = Faker\Factory::create();
+        for ($i=1; $i < 9; $i++) { 
             # code...       
              DB::table('producers')->insert([
-                'pro_name'=>'pro Duy Danh'.$i,
-                'pro_address'=>'Khánh Hòa',
+                'pro_name'=>$faker->name,
+                'pro_address'=>$faker->country,
                 'pro_phone'=> '098765432'.$i,
-                'pro_email'=> 'abc'.$i,
-                'pro_employee'=> 'Dương Duy Xèng'.$i,
-                'dis_id'=>$i,
+                'pro_email'=> $faker->email,
+                'pro_employee'=> $faker->name,
+                'dis_id'=>$faker->numberBetween($min = 1, $max = 7),
             ]);
         }
     }

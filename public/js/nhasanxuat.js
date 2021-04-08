@@ -1,4 +1,6 @@
-
+$(document).ready( function () {
+    $('#myTable').DataTable();
+    });
 
 $(document).ready(function(){
     $.ajaxSetup({
@@ -6,8 +8,37 @@ $(document).ready(function(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
     });
+    $('input.search').appendTo('.ul-search');
 
-    
+
+
+    // Create
+    $(document).on('submit', '#form-create', function(){
+        var pro_name      = $('#c-pro_name').val();
+        var pro_address   = $('#c-pro_address').val();
+        var pro_phone     = $('#c-pro_phone').val();
+        var pro_employee  = $('#c-pro_employee').val();
+        var pro_email     = $('#c-pro_email').val();
+        var dis_id        = $('#c-district').val();
+
+        $.ajax({
+            type : "POST",
+            url : 'insert',
+            data: {
+                pro_name     : pro_name,
+                pro_address  : pro_address,
+                pro_phone    : pro_phone,
+                pro_employee : pro_employee,
+                pro_email    : pro_email,
+                dis_id       : dis_id,
+            },
+            success: function(data){
+                console.log(data);
+
+                alert("Đã Thêm Nhà Sản Xuất Mới ");
+            }
+        });
+    });
 
     // EDIT
     $(".btn-edit").click(function(){   

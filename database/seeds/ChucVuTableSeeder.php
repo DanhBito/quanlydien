@@ -14,16 +14,16 @@ class ChucVuTableSeeder extends Seeder
     {
         //
         DB::table('departments')->insert([
-            'dpm_name'=>'admin',
+            'dpm_name'=>'Admin',
         ]);
         DB::table('departments')->insert([
-            'dpm_name'=>'lanh dao',
+            'dpm_name'=>'Lãnh Đạo',
         ]);
         DB::table('departments')->insert([
-            'dpm_name'=>'quan li',
+            'dpm_name'=>'Quản Lí',
         ]);
         DB::table('departments')->insert([
-            'dpm_name'=>'nhan vien',
+            'dpm_name'=>'Nhân Viên',
         ]);
     }
 }

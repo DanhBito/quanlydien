@@ -13,20 +13,21 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        for ($i=0; $i < 5; $i++) { 
+        $faker = Faker\Factory::create();
+        for ($i=0; $i < 50; $i++) { 
             # code...       
              DB::table('users')->insert([
-                'username'=>'username'.$i,
+                'username'=>$faker->word,
                 'password'=>bcrypt('123456'),
-                'fullname'=> 'Duy Danh '.$i ,
-                'gender'=>'nu',
+                'fullname'=> $faker->name,
+                'gender'=>'Nam',
                 'identification' => '123456789'.$i,
-                'birth'=>'1999-12-20',
-                'address'=>'Khanh Hoa',
+                'birth'=>'2000-01-01',
+                'address'=>$faker->country,
                 'phone'=>'012345678'.$i,
-                'email'=>'abc_'.$i.'@gmail.com',
+                'email'=>$faker->email,
                 'joining'=>'2021-01-01',
-                'dpm_id'=>'1',
+                'dpm_id'=>$faker->numberBetween($min = 1, $max = 4),
             ]);
         }
 

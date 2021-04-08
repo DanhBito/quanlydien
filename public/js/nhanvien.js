@@ -4,15 +4,58 @@ $.ajaxSetup({
 	        }
 });
 
+$(document).ready( function () {
+    $('#myTable').DataTable();
+    });
+
 $(document).ready(function(){
     $('div#alert-err').hide();
+    $('input.search').appendTo('.ul-search');
+    // $('div.col-sm-12 col-md-6').removeClass('col-sm-12 col-md-6');
+
+    // Search 
+    // $('#input-search').on("keyup", function(){
+    //     var search = $(this).val();
+    //     $('#pagination').hide();
+    //     if(search !== ''){
+    //         $.ajax({
+    //             method: "POST",
+    //             url : 'search',
+    //             data: {search:search},
+    //             success:function(data){
+    //                 console.log(data);
+    //                 var resultSearch = '';
+    //                 for(var i = 0; i<data.length; i++){
+    //                     resultSearch += 
+    //                         '<tr>' +
+    //                         '<th width = "5%" scope="row">'      + data[i].id       + '</th>' +
+    //                         '<td width = "18%" scope="row">'     + data[i].fullname + '</td>' +
+    //                         '<td width = "7%" scope="row">'      + data[i].gender   + '</td>' +
+    //                         '<td width = "10%" scope="row">'     + data[i].address  + '</td>' +
+    //                         '<td width = "10%" scope="row">'     + data[i].phone    + '</td>' +
+    //                         '<td width = "10%" scope="row">'     + data[i].deparment.dpm_name + '</td>' +
+    //                         '<td width = "10%" scope="row">'     + data[i].username + '</td>' +
+    //                         '<td width = "5%"> <button  value="' + data[i].id       + '" type="button" class="btn btn-outline-primary btn-show" data-toggle="modal" data-target="#viewuser" > <i class="fas fa-eye" ></i> </button> </td>' +
+    //                         '<td width = "5%"><button value="'   + data[i].id       + '" type="button" class="btn btn-outline-warning btn-edit" data-toggle="modal" data-target="#updateuser" > <i class="fas fa-pen"></i> </button> </td>' +
+    //                         '<td width = "5%"><button value="'   + data[i].id       + '" type="button" class="btn btn-outline-danger btn-delete"> <i class="fas fa-trash-alt"></i> </button> </td></tr>';
+    //                 }
+    //                 $('tbody').html(resultSearch);
+    //             }
+    //         });
+    //     }else{
+    //         window.location.reload();
+    //     }
+    // });
+
     // View Detail User
-    $(".btn-show").click(function(){
+    // $(".btn-show").click(function(){
+    $(document).on('click', '.btn-show', function() {
         // $.get('viewuser', function(data){
         //     $('#viewuser').append(data);
         //     console.log(data);
         // });
         var userid = $(this).val();
+        console.log(userid);
         $.ajax({
             type    : "GET",
             url     : "viewuser/"+userid,
@@ -40,7 +83,7 @@ $(document).ready(function(){
                 $("span#phone").text(data.phone);
                 $("span#email").text(data.email);
                 $("span#identification").text(data.identification);
-                // 
+                $("span#dpm_id").text(data.deparment.dpm_name)
                 // switch (data.dpm_id) {
                 //     case '1':
                 //         $("span#dpm_id").html("Admin");
@@ -55,19 +98,19 @@ $(document).ready(function(){
                 //         $("span#dpm_id").html("Nhân Viên");
                 //         break;
                 // }
-                if(data.dpm_id===1){
-                    $("span#dpm_id").text("Admin");
-                };
-                if(data.dpm_id===2){
-                    $("span#dpm_id").text("Lãnh Đạo");
-                };
-                if(data.dpm_id===3){
-                    $("span#dpm_id").text("Quản Lí");
-                };
-                if(data.dpm_id===4){
-                    $("span#dpm_id").text("Nhân Viên");
-                };
-
+                // if(data.dpm_id===1){
+                //     $("span#dpm_id").text("Admin");
+                // };
+                // if(data.dpm_id===2){
+                //     $("span#dpm_id").text("Lãnh Đạo");
+                // };
+                // if(data.dpm_id===3){
+                //     $("span#dpm_id").text("Quản Lí");
+                // };
+                // if(data.dpm_id===4){
+                //     $("span#dpm_id").text("Nhân Viên");
+                // };
+                // $("span#dpm_id").text(d)
             }
         });
     }); 
@@ -158,36 +201,4 @@ $(document).ready(function(){
         // alert("abc");
     });
 
-    // Search
-    
-    $('#search').on("keyup", function(){
-        var search = $(this).val();
-        $('#pagination').hide();
-        if(search !== ''){
-            $.ajax({
-                method: "POST",
-                url : 'search',
-                data: {search:search},
-                success:function(data){
-                    console.log(data);
-                    var resultSearch = '';
-                    for(var i = 0; i<data.length; i++){
-                        resultSearch += 
-                            '<tr>' +
-                            '<th width = "5%" scope="row">' + data[i].id + '</th>' +
-                            '<td width = "18%" scope="row">' + data[i].fullname + '</td>' +
-                            '<td width = "7%" scope="row">' + data[i].gender + '</td>' +
-                            '<td width = "10%" scope="row">' + data[i].address + '</td>' +
-                            '<td width = "10%" scope="row">' + data[i].phone + '</td>' +
-                            '<td width = "10%" scope="row">' + data[i].dpm_id + '</td>' +
-                            '<td width = "10%" scope="row">' + data[i].username + '</td>' +
-                            '<td width = "5%"> <button  value="" type="button" class="btn btn-outline-primary btn-show" data-toggle="modal" data-target="#viewuser" > <i class="fas fa-eye" ></i> </button> </td>' +
-                            '<td width = "5%"><button value="" type="button" class="btn btn-outline-warning btn-edit" data-toggle="modal" data-target="#updateuser" > <i class="fas fa-pen"></i> </button> </td>' +
-                            '<td width = "5%"><button value="" type="button" class="btn btn-outline-danger btn-delete"> <i class="fas fa-trash-alt"></i> </button> </td></tr>';
-                    }
-                    $('tbody').html(resultSearch);
-                }
-            });
-        }
-    });
 });

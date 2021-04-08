@@ -15,18 +15,18 @@ class NhanVienController extends Controller
     //
     public function index(){
 
-        $list_users = DB::table('users')->paginate(5);
-        foreach($list_users as $list_user){
-            $dpm = Deparment::find($list_user->dpm_id);
-            $list_user->dpm_id = $dpm->dpm_name;
-        }
+        $list_users = User::with('deparment:id,dpm_name')->get();
+        // foreach($list_users as $list_user){
+        //     $dpm = Deparment::find($list_user->dpm_id);
+        //     $list_user->dpm_id = $dpm->dpm_name;
+        // }
 
         return view('danhmuc.nhanvien.danhsach')->with(compact('list_users'));
     }
 
     public function viewuser($id)
     {
-        $data = User::where('id',$id)->first();
+        $data = User::where('id',$id)->with('deparment:id,dpm_name')->first();
 
         return response()->json($data);
 
@@ -63,16 +63,26 @@ class NhanVienController extends Controller
 
     public function search(Request $request){
         $inputSearch = $request->search;
-        $results = DB::table('users')
-                        ->where('fullname',  'LIKE', '%'.$inputSearch.'%')
-                        ->OrWhere('address', 'LIKE', '%'.$inputSearch.'%')
-                        ->OrWhere('phone',   'LIKE', '%'.$inputSearch.'%')
+        $results = User::where('fullname',  'LIKE', '%'.$inputSearch.'%')
                         ->OrWhere('id',      'LIKE', '%'.$inputSearch.'%')
+                        ->OrWhere('address', 'LIKE', '%'.$inputSearch.'%')
+                        ->OrWhere('phone',   'LIKE', '%'.$inputSearch.'%')  
+                        ->OrWhere('username','LIKE', '%'.$inputSearch.'%')
+                        ->with(['deparment:id,dpm_name'])       
                         ->get();
-        foreach ($results as $result) {
-            $dpm = Deparment::find($result->dpm_id);
-            $result->dpm_id = $dpm->dpm_name;
-        }
+        // foreach ($results as $result) {
+        //     $dpm = Deparment::find($result->dpm_id);
+        //     $result->dpm_id = $dpm->dpm_name;
+        // }
+        
         return response()->json($results);
+    }
+
+    public function autocomplete(Request $request){
+        // $search = $request->terms;
+        $datas = User::select('fullname')
+                        ->where('fullname',  'LIKE', "%{$request->terms}%")
+                        ->get();
+        return response()->json($datas);             
     }
 }

@@ -65,6 +65,7 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
         Route::post('postupdateuser', 'NhanVienController@postupdateuser');
         Route::get('delete/{id}',     'NhanVienController@deleteuser');
         Route::post('search',          'NhanVienController@search') ;
+        Route::get('autocomplete',    'NhanVienController@autocomplete')->name('autocomplete');
     });
 
     Route::prefix('nhasanxuat')->group(function () {
@@ -72,6 +73,7 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
         Route::get('edit/{id}',          'NhaSanXuatController@getedit');
         Route::post('postupdatproducer', 'NhaSanXuatController@postupdatproducer');
         Route::get('delete/{id}',        'NhaSanXuatController@deleteproducer');
+        Route::post('insert',            'NhaSanXuatController@insert')->name('inserproducer');
     });
 });
 

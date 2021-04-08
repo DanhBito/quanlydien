@@ -20,10 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('fullname', 30);
             $table->string('gender',3)->default('nam');
             $table->date('birth');
-            $table->string('address')->nullable($value=true);
-            $table->string('identification', 20)->nullable($value=true);
+            $table->string('address')->nullable();
+            $table->string('identification', 20)->nullable();
             $table->string('phone', 20);
-            $table->string('email')->nullable($value=true);
+            $table->string('email')->nullable();
             $table->date('joining');
             $table->bigInteger('dpm_id')->unsigned();
             $table->foreign('dpm_id')->references('id')->on('departments');
