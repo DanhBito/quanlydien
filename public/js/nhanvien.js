@@ -189,11 +189,17 @@ $(document).ready(function(){
                     alert("Đã Sửa Thông Tin Người Dùng ID: " + data.id);
                },
                error:function(data){
+                //     window.location.reload();
+                //    alert(data.responseJSON.errors.birth);
+                //    alert(data.responseJSON.errors.email);
+                //    alert(data.responseJSON.errors.phone);
+                //    alert(data.responseJSON.errors.joining);
                     $('div#alert-err').show();
                     $('#err').text(data.responseJSON.errors.birth);
                     $('#err').text(data.responseJSON.errors.email);
                     $('#err').text(data.responseJSON.errors.phone);
                     $('#err').text(data.responseJSON.errors.joining);
+                    window.stop();
                }
                
             });

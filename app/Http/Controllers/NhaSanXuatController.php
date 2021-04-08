@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Producer;
 use App\District;
+use App\Http\Requests\ProductPost;
 
 
 class NhaSanXuatController extends Controller
@@ -53,8 +54,9 @@ class NhaSanXuatController extends Controller
         return response()->json($data);
     }
 
-    public function insert(Request $request){
+    public function insert(ProductPost $request){
         # code...
+        $validated = $request->validated();
         try {
             DB::table('producers')->insert([
                 'pro_name' => $request->pro_name,

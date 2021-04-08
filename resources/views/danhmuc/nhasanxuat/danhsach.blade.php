@@ -3,7 +3,7 @@
 
     <nav class="navbar navbar-light bg-light " style="margin-bottom:-30px; ">
         <ul class="float-left mt-2">
-            <a href="{{route('insertdistrict')}}" class="btn btn-primary "><i class="fas fa-plus"></i> Thêm Nhà Sản Xuất</a>
+            <button data-toggle="modal" data-target="#create" class="btn btn-primary "><i class="fas fa-plus"></i> Thêm Nhà Sản Xuất</button>
         </ul>
         <h1 class="d-inline text-center">
             Quản Lí Nhà Sản Xuất
@@ -12,15 +12,7 @@
             {{-- <input class="form-control mr-sm-2" id="input-search" type="search" placeholder="Search" aria-label="Search"> --}}
         </ul>
     </nav>
-    @if (session('alert_error'))
-        <div class="alert alert-danger">
-            {{session('alert_error')}}
-        </div>
-    @elseif(session('alert_success'))
-            <div class="alert alert-success">
-            {{session('alert_success')}}
-        </div>
-    @endif
+
     <table class="table table-bordered text-center" id="myTable">
         <thead class="thead-dark">
             <tr>
@@ -66,7 +58,7 @@
     @include('danhmuc.nhasanxuat.update')
     @include('danhmuc.nhasanxuat.create')
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
     <script src="{{ asset('js/DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('js/nhasanxuat.js') }}"></script>
 @endsection

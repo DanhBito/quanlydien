@@ -18,34 +18,34 @@
                 
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Tên Nhà Sản Xuất</label>
-                <input type="text" class="col-md-6 form-control" id="u-pro_name">
+                <input type="text" class="col-md-6 form-control" id="u-pro_name" required>
             </div>
 
             
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Địa Chỉ: </label>
-                <input type="text" class="col-md-6 form-control" id="u-pro_address">
+                <input type="text" class="col-md-6 form-control" id="u-pro_address" required>
             </div>
 
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Số ĐT: </label>
-                <input type="text" class="col-md-6 form-control" id="u-pro_phone">
+                <input type="text" class="col-md-6 form-control" id="u-pro_phone" required>
             </div>
             
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Email:</label>
-                <input type="text" class="col-md-6 form-control" id="u-pro_email">
+                <input type="text" class="col-md-6 form-control" id="u-pro_email" required>
             </div>
 
             
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Nhân Viên Đại Diện</label>
-                <input type="text" class="col-md-6 form-control" id="u-pro_employee">
+                <input type="text" class="col-md-6 form-control" id="u-pro_employee" required>
             </div>
 
             <div class="form-group row select-district">
                 <label class="col-md-4 text-md-right font-weight-bold" >Khu Vực</label>
-                <select class="col-md-6 form-control" name="district" id="u-district" class="form-control" name="district" >
+                <select class="col-md-6 form-control" name="district" id="u-district" class="form-control" name="district" required>
                   @foreach ($districts as $district)
                     <option name="district" value="{{$district->id}}">{{$district->dis_name}}</option>
                   @endforeach  

@@ -9,34 +9,39 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body " >
+          
+          <div class="alert alert-danger" id="alert-err" >
+            <li id="err" ></li> 
+          </div>
+
           <form action="#" id="form-create">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Tên Nhà Sản Xuất</label>
-                <input type="text" class="col-md-6 form-control" id="c-pro_name">
+                <input type="text" class="col-md-6 form-control" id="c-pro_name" required>
             </div>
 
             
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Địa Chỉ: </label>
-                <input type="text" class="col-md-6 form-control" id="c-pro_address">
+                <input type="text" class="col-md-6 form-control" id="c-pro_address" required>
             </div>
 
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Số ĐT: </label>
-                <input type="text" class="col-md-6 form-control" id="c-pro_phone">
+                <input type="text" class="col-md-6 form-control" id="c-pro_phone" required>
             </div>
             
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Email:</label>
-                <input type="text" class="col-md-6 form-control" id="c-pro_email">
+                <input type="email" class="col-md-6 form-control" id="c-pro_email" required>
             </div>
 
             
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Nhân Viên Đại Diện</label>
-                <input type="text" class="col-md-6 form-control" id="c-pro_employee">
+                <input type="text" class="col-md-6 form-control" id="c-pro_employee" required>
             </div>
 
             <div class="form-group row select-district">
@@ -50,7 +55,7 @@
 
             <div class="form-group row">
               <div class="col-md-10 text-md-right">
-                <input type="submit" value="Cập Nhật" class="btn btn-primary col-4 btn-submit" ></input>
+                <input type="submit" value="Thêm Mới" class="btn btn-primary col-4 btn-submit" ></input>
               </div>
             </div>
           </form>

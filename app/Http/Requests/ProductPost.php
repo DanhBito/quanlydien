@@ -24,7 +24,14 @@ class ProductPost extends FormRequest
     public function rules()
     {
         return [
-            //
+            'pro_name' => 'unique:producers,pro_name',
+        ];
+    }
+
+    public function messages()
+    {
+        return  [
+            'pro_name.unique'=> 'Đã Tồn Tại Tên Nhà Sản Xuất',
         ];
     }
 }

@@ -9,7 +9,6 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body " >
-          
           <div class="alert alert-danger" id="alert-err" >
             <li id="err" ></li> 
           </div>
@@ -77,7 +76,7 @@
 
             <div class="form-group row">
               <div class="col-md-10 text-md-right">
-                <input type="submit" value="Cập Nhật" class="btn btn-primary col-4 btn-submit" ></input>
+                <button type="submit"class="btn btn-primary col-4 btn-submit" >Cập Nhật</button>
               </div>
             </div>
           </form>

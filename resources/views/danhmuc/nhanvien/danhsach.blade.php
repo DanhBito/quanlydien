@@ -14,13 +14,6 @@
         {{-- <ul class="float-right mt-2">
             <a href="{{route('dangky')}}" class="btn btn-primary "><i class="fas fa-plus"></i> Thêm Nhân Viên</a>
         </ul> --}}
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-                @foreach ($errors->all() as $err)
-                   <li>{{ $err }}</li> 
-                @endforeach
-        </div>
-      @endif
     </nav>
 
 
@@ -69,18 +62,12 @@
         </table>
 
     </div>
-    <div id="pagination">
-
-        {{-- <ul class = "pagination justify-content-end" id="">
-            {{ $list_users->links() }}
-        </ul> --}}
-    </div>
 
 
   @include('danhmuc.nhanvien.viewuser')
   @include('danhmuc.nhanvien.updateuser')
 
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
+  {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
     <script src="{{ asset('js/DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('js/nhanvien.js') }}"></script>
 
