@@ -51,7 +51,7 @@ $(document).ready(function(){
     });
 
     // EDIT
-    $(".btn-edit").click(function(){   
+    $(document).on('click', '.btn-edit', function(){ 
         var pro_id = $(this).val();
         $.ajax({
             type : 'GET',
@@ -70,7 +70,7 @@ $(document).ready(function(){
         });
     });
 
-    $('#form-update').submit(function(){
+    $(document).on('submit', '#form-update', function(){
         window.location.reload();
         if(confirm('Bạn Có Chắc Chắn Muốn Sửa Không?')){
             var id            = $('#u-id').val();
@@ -103,7 +103,7 @@ $(document).ready(function(){
         // alert("abc");
     });
 
-    $('.btn-delete').click(function(){
+    $(document).on('click', '.btn-delete', function(){ 
         var pro_id = $(this).val();
         if(confirm('Bạn Có Chắc Chắn Muốn Xóa Không?')){
             $.ajax({

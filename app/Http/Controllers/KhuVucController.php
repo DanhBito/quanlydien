@@ -38,8 +38,15 @@ class KhuVucController extends Controller
 
     public function deletedistrict($id){
         $data = DB::table('districts')->where('id', $id)->first();
-         DB::table('districts')->where('id', $id)->delete();
-        return redirect()->back()->with('alert_success', 'Xóa Khu Vực '.$data->dis_name.' Thành Công !' );
+        try {
+            //code..
+                    DB::table('districts')->where('id', $id)->delete();
+           return redirect()->back()->with('alert_success', 'Xóa Khu Vực '.$data->dis_name.' Thành Công !' );
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('alert_error', 'Xóa Khu Vực '.$data->dis_name.' Thất Bại Do Khu Vực Này Còn Các Nhà Sản Xuất Khác. <br> Đề Nghị Bạn Xem Lại Các Nhà Sản Xuất Còn Trong Khu Vực!' );
+        }
+
     }
 
     public function insertdistrict(){

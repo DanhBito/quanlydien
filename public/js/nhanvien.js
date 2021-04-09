@@ -116,7 +116,7 @@ $(document).ready(function(){
     }); 
 
     // Delete User
-    $('.btn-delete').click(function(){
+    $(document).on('click', '.btn-delete', function(){ 
         var userid = $(this).val();
         if(confirm('Bạn Có Chắc Chắn Muốn Xóa Không?')){
             $.ajax({
@@ -131,7 +131,7 @@ $(document).ready(function(){
     });
 
 // Edit User
-    $('.btn-edit').click(function(){
+    $(document).on('click', '.btn-edit', function(){ 
         var userid = $(this).val();
         $.ajax({
             type   : "GET",
@@ -155,7 +155,7 @@ $(document).ready(function(){
         });
     });
 
-    $('#form-update').submit(function(){
+    $(document).on('submit', '#form-update', function(){
         window.location.reload();
         if(confirm('Bạn Có Chắc Chắn Muốn Sửa Không?')){
             var id             = $('#u-id').val();

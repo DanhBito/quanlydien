@@ -13,12 +13,12 @@
         </ul>
     </nav>
     @if (session('alert_error'))
-        <div class="alert alert-danger">
-            {{session('alert_error')}}
+        <div class="alert alert-danger mt-3">
+            {!! session('alert_error') !!}
         </div>
     @elseif(session('alert_success'))
-            <div class="alert alert-success">
-            {{session('alert_success')}}
+            <div class="alert alert-success mt-3">
+            {!! session('alert_success') !!}
         </div>
     @endif
     <table class="table table-bordered  text-center" id="myTable">
