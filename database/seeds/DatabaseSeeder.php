@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(InforCompanySeeder::class);
         // $this->call(DistrictTableSeeder::class);
         // $this->call(ProducerTableSeeder::class);
+        $this->call(UnitTableSeeder::class);
+        $this->call(QualityTableSeeder::class);
     }
 }
