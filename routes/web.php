@@ -77,10 +77,19 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
     });
 
     Route::prefix('donvitinh')->group(function () {
-        Route::get('index', 'DonViTinhController@index')->name('donvitinh');
-        Route::get('edit/{id}', 'DonViTinhController@edit');
-        Route::put('update', 'DonViTinhController@update');
-        Route::post('store', 'DonViTinhController@store');
+        Route::get('index',       'DonViTinhController@index')->name('donvitinh');
+        Route::get('edit/{id}',   'DonViTinhController@edit');
+        Route::put('update',      'DonViTinhController@update');
+        Route::post('store',      'DonViTinhController@store');
+        Route::get('delete/{id}', 'DonViTinhController@destroy');
+    });
+
+    Route::prefix('chatluong')->group(function () {
+        Route::get('index',       'ChatLuongController@index')->name('chatluong');
+        Route::get('edit/{id}',   'ChatLuongController@edit');
+        Route::put('update',      'ChatLuongController@update');
+        Route::post('store',      'ChatLuongController@store');
+        Route::get('delete/{id}', 'ChatLuongController@destroy');
     });
 });
 

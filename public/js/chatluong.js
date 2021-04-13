@@ -16,25 +16,23 @@ $(document).ready(function(){
     $(document).on('submit', '#form-create', function(){
         window.location.reload();
         if(confirm('Bạn Có Chắc Chắn Muốn Thêm Không Không?')){
-            var unit_name      = $('#c-unit_name').val();
-            var unit_simplify   = $('#c-unit_simplify').val();
+            var qua_name      = $('#c-qua_name').val();
     
             $.ajax({
                 type : "post",
                 url : 'store',
                 data: {
-                    unit_name     : unit_name,
-                    unit_simplify : unit_simplify,
+                    qua_name     : qua_name,
                 },
                 success: function(data){
                     // window.location.reload();
                     console.log(data);
-                    alert('Thêm Đơn Vị Tính ' + data + ' Thành Công!');
+                    alert('Thêm Chất Lượng ' + data + ' Thành Công!');
                     window.location.reload();
                 },
                 error:function(data){
                      $('div#alert-err').show();
-                     $('#err').text(data.responseJSON.errors.unit_name);
+                     $('#err').text(data.responseJSON.errors.qua_name);
                      window.stop();
                 }
             });
@@ -46,15 +44,14 @@ $(document).ready(function(){
 
     // EDIT
     $(document).on('click', '.btn-edit', function(){ 
-        var unit_id = $(this).val();
+        var qua_id = $(this).val();
         $.ajax({
             type : 'GET',
-            url  : "edit/" + unit_id,
+            url  : "edit/" + qua_id,
             success: function(data){
-                $("h4#title").text("Sửa Thông Tin Đơn Vị Tính Có ID: " + data.id)
+                $("h4#title").text("Sửa Thông Tin Chất lượng Có ID: " + data.id)
                 $("input#u-id").val(data.id);
-                $("input#u-unit_name").val(data.unit_name);
-                $("input#u-unit_simplify").val(data.unit_simplify);
+                $("input#u-qua_name").val(data.qua_name);
                 console.log(data);
             }
         });
@@ -64,24 +61,22 @@ $(document).ready(function(){
         window.location.reload();
         if(confirm('Bạn Có Chắc Chắn Muốn Sửa Không?')){
             var id            = $('#u-id').val();
-            var unit_name      = $('#u-unit_name').val();
-            var unit_simplify   = $('#u-unit_simplify').val();
+            var qua_name      = $('#u-qua_name').val();
             $.ajax({
                type :'put',
                url  : 'update',
                data : {
                     id            : id,
-                    unit_name     : unit_name,
-                    unit_simplify : unit_simplify,
+                    qua_name     : qua_name,
                },
                success:function(data){
                    console.log(data);
                 //    window.stop();
                    window.location.reload();
                    if(data){ 
-                        alert("Đã Sửa Thông Tin Đơn Vị Tính: " + data);
+                        alert("Đã Sửa Thông Tin Chất Lượng: " + data);
                    }else{
-                        alert("Đã Tồn Tại Đơn Vị Tính!");
+                        alert("Đã Tồn Tại Tên Chất Lượng!");
                         window.stop();
                    }
                }
@@ -94,17 +89,18 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.btn-delete', function(){ 
-        var unit_id = $(this).val();
+        var pro_id = $(this).val();
         if(confirm('Bạn Có Chắc Chắn Muốn Xóa Không?')){
             $.ajax({
                type    :'get',
-               url     : 'delete/' + unit_id,
+               url     : 'delete/' + pro_id,
                success :function(data){
                     console.log(data);
                    window.location.reload();
-                   alert("Đã Xóa " + data.unit_name);
+                   alert("Đã Xóa " + data.qua_name);
                }
             });
         }
     });
+
 });

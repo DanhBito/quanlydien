@@ -86,12 +86,21 @@ class DonViTinhController extends Controller
     {
         $update = $request->all();
 
-        $new_update = $unit->updateOrCreate($update);
-
-        if($new_update->id == $unit->id OR !$new_update->exists){
+        $x = Unit::where('unit_name', $request->unit_name)
+                    ->where('id', '!=', $request->id)->count();
+        
+        if($x == 0){
             $unit->where('id', $request->id)->update($update);
             return response()->json($request->unit_name, Response::HTTP_OK);
         }
+        
+        // return response()->json($x, Response::HTTP_OK);
+
+        // $new_update = $unit->updateOrCreate($update);
+
+        // if($new_update->id == $unit->id OR !$new_update->exists){
+            
+        // }
         // $count = Unit::select('unit_name')->where('id', $request->id)->get();
         // if($count < 1){
         //     $datas = Unit::where('id', $request->id)->first();
@@ -107,8 +116,10 @@ class DonViTinhController extends Controller
      * @param  \App\Unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Unit $unit)
+    public function destroy(Unit $unit, $id)
     {
-        //
+        $datas = $unit->find($id);
+        $unit->destroy($id);
+        return response()->json($datas, Response::HTTP_OK);
     }
 }
