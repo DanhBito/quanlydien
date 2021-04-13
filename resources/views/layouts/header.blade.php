@@ -1,6 +1,6 @@
 
     <nav class="navbar navbar-expand-lg pt-0 pb-0 navbar-dark bg-primary position-relative">
-        <a class="navbar-brand" href="home"> <i class="fas fa-home"></i> Trang Chủ</a>
+        <a class="navbar-brand" href="{{route('home')}}"> <i class="fas fa-home"></i> Trang Chủ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

@@ -3,7 +3,7 @@
 
     <nav class="navbar navbar-light bg-light " style="margin-bottom:-30px; ">
         <ul class="float-left mt-2">
-            <a href="{{route('insertdistrict')}}" class="btn btn-primary "><i class="fas fa-plus"></i> Thêm Nhân Viên</a>
+            <a href="{{route('insertdistrict')}}" class="btn btn-primary "><i class="fas fa-plus"></i> Thêm Khu Vực</a>
         </ul>
         <h1 class="d-inline text-center">
             Quản Lí Khu Vực

@@ -56,7 +56,7 @@
 <!--       <div class="card-body"> -->
         <ul class="list-group list-group-horizontal">
 		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-award"></i> Chất Lượng</a>
-		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-weight-hanging"></i> Đơn Vị Tính</a>
+		    <a href="{{route('donvitinh')}}" role="button" class="list-group-item bg-info"><i class="fas fa-weight-hanging"></i> Đơn Vị Tính</a>
 		    <a href="{{route('khuvuc')}}" role="button" class="list-group-item bg-info"><i class="fab fa-fort-awesome-alt"></i> Khu Vực</a>
 		    <a href="{{route('nhanvien')}}" role="button" class="list-group-item bg-info"><i class="fas fa-user-tie"></i> Nhân Viên</a>
 			<a href="{{route('nhasanxuat')}}" role="button" class="list-group-item bg-info"><i class="fas fa-box-open"></i> Nhà Sản Xuất</a>

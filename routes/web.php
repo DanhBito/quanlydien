@@ -75,6 +75,13 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
         Route::get('delete/{id}',        'NhaSanXuatController@deleteproducer');
         Route::post('insert',            'NhaSanXuatController@insert')->name('inserproducer');
     });
+
+    Route::prefix('donvitinh')->group(function () {
+        Route::get('index', 'DonViTinhController@index')->name('donvitinh');
+        Route::get('edit/{id}', 'DonViTinhController@edit');
+        Route::put('update', 'DonViTinhController@update');
+        Route::post('store', 'DonViTinhController@store');
+    });
 });
 
 
