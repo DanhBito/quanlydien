@@ -13,4 +13,8 @@ class Quality extends Model
          'qua_name',
     ];
 
+    public function quality_supplies()
+    {
+        return $this->hasMany( 'App\Supplies' , 'qua_id', 'id' );
+    }
 }

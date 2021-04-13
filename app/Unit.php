@@ -13,4 +13,8 @@ class Unit extends Model
          'unit_name', 'unit_simplify',
     ];
 
+    public function unit_supplies()
+    {
+        return $this->hasMany( 'App\Supplies' , 'unit_id', 'id' );
+    }
 }

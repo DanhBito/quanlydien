@@ -17,4 +17,9 @@ class Producer extends Model
     {
         return $this->belongsTo( 'App\District' , 'dis_id', 'id' );
     }
+
+    public function producer_supplies()
+    {
+        return $this->hasMany( 'App\Supplies' , 'pro_id', 'id' );
+    }
 }
