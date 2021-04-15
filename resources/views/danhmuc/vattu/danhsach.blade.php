@@ -54,11 +54,9 @@
             @endforeach
         </tbody>
     </table>
-    <!-- {{-- <ul class = "pagination justify-content-end" >
-        {{ $list_districtes->links() }}
-    </ul> --}} -->
-    @include('danhmuc.vattu.update')
     @include('danhmuc.vattu.create')
+    @include('danhmuc.vattu.update')
+
 
     <script src="{{ asset('js/DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('js/vattu.js') }}"></script> 

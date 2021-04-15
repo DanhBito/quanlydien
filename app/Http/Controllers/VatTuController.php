@@ -32,10 +32,10 @@ class VatTuController extends Controller
      */
     public function create()
     {
-        $pro = Producer::select('pro_name')->get();
-        $pro = Unit::select('unit_name')->get();
-        $pro = Quality::select('qua_name')->get();
-        return response()->json($pro, Response::HTTP_OK);
+        // $pro = Producer::select('pro_name')->get();
+        // $pro = Unit::select('unit_name')->get();
+        // $pro = Quality::select('qua_name')->get();
+        // return response()->json($pro, Response::HTTP_OK);
     }
 
     /**
@@ -46,7 +46,16 @@ class VatTuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $validated = $request->validated();
+        // $validated = $request->validated();
+        $datas = $request->all();
+        try {
+            Supplies::create($request->all());
+            return response()->json($datas, Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            return response()->json($datas, Response::HTTP_OK);
+        }
+
     }
 
     /**
@@ -92,5 +101,18 @@ class VatTuController extends Controller
     public function destroy(Supplies $supplies)
     {
         //
+    }
+
+    public function abc(Request $request)
+    {
+        // $validated = $request->validated();
+
+        return response()->json($request->all(), Response::HTTP_OK);
+        // try {
+        //     Supplies::create($request->all());
+        //     return response()->json($request->all(), Response::HTTP_OK);
+        // } catch (\Throwable $th) {
+        //     return response()->json($request->sup_name, Response::HTTP_OK);
+        // }
     }
 }

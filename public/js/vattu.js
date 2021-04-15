@@ -24,32 +24,30 @@ $(document).ready(function(){
             var pro_id     = $('#c-pro_id').val();
 
             $.ajax({
-                type : "post",
+                type : "POST",
                 url : 'store',
                 data: {
                     sup_name   : sup_name,
                     sup_amount : sup_amount,
-                    unit_id    : unit_id,
                     sup_price  : sup_price,
+                    unit_id    : unit_id,
                     qua_id     : qua_id,
                     pro_id     : pro_id,
                 },
                 success: function(data){
                     // window.location.reload();
                     console.log(data);
-                    alert('Thêm Chất Lượng ' + data + ' Thành Công!');
+                    alert("Đã Thêm Vật Tư Mới " + data.sup_id + ": " + data.sup_name);
                     window.location.reload();
-                },
-                error:function(data){
-                     $('div#alert-err').show();
-                     $('#err').text(data.responseJSON.errors.sup_name);
-                     window.stop();
                 }
             });
         }else{
-            window.stop();
+            $(document).ready(function(){
+                window.stop();
+                $("#create").modal('show');
+            });
         }
-        
+
     });
 
     // EDIT

@@ -12,7 +12,7 @@
           <div class="alert alert-danger" id="alert-err" >
             <li id="err" ></li> 
           </div>
-          <form action="#" id="form-create">
+          <form action="#" id="form-create" >
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 
             <div class="form-group row">
@@ -22,12 +22,12 @@
 
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Số Lượng</label>
-                <input type="number" class="col-md-6 form-control" id="c-sup_amount" required>
+                <input type="number" class="col-md-6 form-control" id="c-sup_amount" min="1" required/>
             </div>
 
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Đơn Vị Tính</label>
-                <select class="col-md-6 form-control" name="postion" id="c-unit_id" class="form-control" name="postion" >
+                <select class="col-md-6 form-control" name="postion" id="c-unit_id" class="form-control" name="postion" required>
                     <option value="">-- Chọn --</option>
                     {{ Select_Function('donvitinh') }}
                 </select>
@@ -35,12 +35,12 @@
 
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Giá Vật Tư</label>
-                <input type="text" class="col-md-6 form-control" id="c-sup_price" required>
+                <input type="number" class="col-md-6 form-control" id="c-sup_price" min="1" maxlength="12" required/>
             </div>
 
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Chất Lượng</label>
-                <select class="col-md-6 form-control" name="postion" id="c-qua_id" class="form-control" name="postion" >
+                <select class="col-md-6 form-control" name="postion" id="c-qua_id" class="form-control" name="postion" required>
                     <option value="">-- Chọn --</option>
                     {{ Select_Function('chatluong') }}
                 </select>
@@ -48,7 +48,7 @@
 
             <div class="form-group row">
                 <label class="col-md-4 text-md-right font-weight-bold" >Nhà Sản Xuất</label>
-                <select class="col-md-6 form-control" name="postion" id="c-pro_id" class="form-control" name="postion" >
+                <select class="col-md-6 form-control" name="postion" id="c-pro_id" class="form-control" name="postion" required>
                     <option value="">-- Chọn --</option>
                     {{ Select_Function('nhasanxuat') }}
                 </select>
@@ -56,7 +56,7 @@
 
             <div class="form-group row">
               <div class="col-md-10 text-md-right">
-                <input type="submit" value="Cập Nhật" class="btn btn-primary col-4 btn-submit" ></input>
+                <input type="submit" value="Cập Nhật" class="btn btn-primary col-4 btn-submit" data-target="#create"></input>
               </div>
             </div>
           </form>

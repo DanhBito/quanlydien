@@ -46,6 +46,11 @@ $(document).ready(function(){
                      window.stop();
                 }
             });
+        }else{
+            $(document).ready(function(){
+                window.stop();
+                $("#create").modal('show');
+            });
         }
         
     });

@@ -39,7 +39,10 @@ $(document).ready(function(){
                 }
             });
         }else{
-            window.stop();
+            $(document).ready(function(){
+                window.stop();
+                $("#create").modal('show');
+            });
         }
         
     });

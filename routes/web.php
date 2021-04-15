@@ -96,9 +96,9 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
         Route::get('index',       'VatTuController@index')->name('vattu');
         Route::get('edit/{id}',   'VatTuController@edit');
         Route::put('update',      'VatTuController@update');
-        Route::get('create',       'VatTuController@create');
         Route::post('store',      'VatTuController@store');
         Route::get('delete/{id}', 'VatTuController@destroy');
+        // Route::post('abc',      'VatTuController@abc');
     });
 });
 
