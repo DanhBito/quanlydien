@@ -16,6 +16,7 @@ class SuppliesTableSeeder extends Seeder
             # code...       
              DB::table('supplies')->insert([
                 'sup_name'=>$faker->lastName,
+                'sup_amount'=>$faker->numberBetween($min = 1, $max = 50),
                 'sup_price'=>$faker->randomNumber,
                 'unit_id'=>$faker->numberBetween($min = 1, $max = 4),
                 'qua_id'=>$faker->numberBetween($min = 1, $max = 5),

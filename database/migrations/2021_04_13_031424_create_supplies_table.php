@@ -15,8 +15,9 @@ class CreateSuppliesTable extends Migration
     {
         Schema::create('supplies', function (Blueprint $table) {
             $table->id();
-            $table->string('sup_name')->uniqe();
-            $table->decimal('sup_price', $precision = 12, $scale = 0);
+            $table->string('sup_name');
+            $table->integer('sup_amount');
+            $table->decimal('sup_price', $precision = 20, $scale = 0);
             $table->bigInteger('unit_id')->unsigned();
             $table->foreign('unit_id')->references('id')->on('units');
             $table->bigInteger('qua_id')->unsigned();

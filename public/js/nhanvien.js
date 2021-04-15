@@ -197,8 +197,8 @@ $(document).ready(function(){
                     $('div#alert-err').show();
                     $('#err').text(data.responseJSON.errors.birth);
                     $('#err').text(data.responseJSON.errors.email);
-                    $('#err').text(data.responseJSON.errors.phone);
-                    $('#err').text(data.responseJSON.errors.joining);
+                    $('#err').text(data.responseJSON.errors.phone_number);
+                    $('#err').text(data.responseJSON.errors.date_joining);
                     window.stop();
                }
                

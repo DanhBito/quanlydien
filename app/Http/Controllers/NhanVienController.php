@@ -61,28 +61,28 @@ class NhanVienController extends Controller
         return response()->json($data);
     }
 
-    public function search(Request $request){
-        $inputSearch = $request->search;
-        $results = User::where('fullname',  'LIKE', '%'.$inputSearch.'%')
-                        ->OrWhere('id',      'LIKE', '%'.$inputSearch.'%')
-                        ->OrWhere('address', 'LIKE', '%'.$inputSearch.'%')
-                        ->OrWhere('phone',   'LIKE', '%'.$inputSearch.'%')  
-                        ->OrWhere('username','LIKE', '%'.$inputSearch.'%')
-                        ->with(['deparment:id,dpm_name'])       
-                        ->get();
-        // foreach ($results as $result) {
-        //     $dpm = Deparment::find($result->dpm_id);
-        //     $result->dpm_id = $dpm->dpm_name;
-        // }
+    // public function search(Request $request){
+    //     $inputSearch = $request->search;
+    //     $results = User::where('fullname',  'LIKE', '%'.$inputSearch.'%')
+    //                     ->OrWhere('id',      'LIKE', '%'.$inputSearch.'%')
+    //                     ->OrWhere('address', 'LIKE', '%'.$inputSearch.'%')
+    //                     ->OrWhere('phone',   'LIKE', '%'.$inputSearch.'%')  
+    //                     ->OrWhere('username','LIKE', '%'.$inputSearch.'%')
+    //                     ->with(['deparment:id,dpm_name'])       
+    //                     ->get();
+    //     // foreach ($results as $result) {
+    //     //     $dpm = Deparment::find($result->dpm_id);
+    //     //     $result->dpm_id = $dpm->dpm_name;
+    //     // }
         
-        return response()->json($results);
-    }
+    //     return response()->json($results);
+    // }
 
-    public function autocomplete(Request $request){
-        // $search = $request->terms;
-        $datas = User::select('fullname')
-                        ->where('fullname',  'LIKE', "%{$request->terms}%")
-                        ->get();
-        return response()->json($datas);             
-    }
+    // public function autocomplete(Request $request){
+    //     // $search = $request->terms;
+    //     $datas = User::select('fullname')
+    //                     ->where('fullname',  'LIKE', "%{$request->terms}%")
+    //                     ->get();
+    //     return response()->json($datas);             
+    // }
 }

@@ -1,41 +1,3 @@
-
-<!-- <div class="collapse" id="collapseSystem">
-	<ul class="list-group list-group-horizontal">
-	    <a href="" role="button" class="list-group-item bg-info">First item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Second item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Third item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Fourth item</a>
- 	</ul>
-</div>
-
-<div class="collapse" id="collapseCategory">
-	<ul class="list-group list-group-horizontal">
-	    <a href="" role="button" class="list-group-item bg-info">First item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Second items</a>
-	    <a href="" role="button" class="list-group-item bg-info">Third item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Fourth item</a>
- 	</ul>
-</div>
-
-<div class="collapse" id="collapseFuntion">
-	<ul class="list-group list-group-horizontal">
-	    <a href="" role="button" class="list-group-item bg-info">First item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Second item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Third item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Fourth item</a>
- 	</ul>
-</div>
-
-<div class="collapse" id="collapseHelp">
-	<ul class="list-group list-group-horizontal">
-	    <a href="" role="button" class="list-group-item bg-info">First item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Second item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Third item</a>
-	    <a href="" role="button" class="list-group-item bg-info">Fourth item</a>
- 	</ul>
-</div>
- -->
-
 <div id="accordion">
 <!--   <div class="card"> -->
     <div id="collapseOne" class="collapse bg-info" aria-labelledby="headingOne" data-parent="#accordion">
@@ -60,8 +22,7 @@
 		    <a href="{{route('khuvuc')}}" role="button" class="list-group-item bg-info"><i class="fab fa-fort-awesome-alt"></i> Khu Vực</a>
 		    <a href="{{route('nhanvien')}}" role="button" class="list-group-item bg-info"><i class="fas fa-user-tie"></i> Nhân Viên</a>
 			<a href="{{route('nhasanxuat')}}" role="button" class="list-group-item bg-info"><i class="fas fa-box-open"></i> Nhà Sản Xuất</a>
-			<a href="" role="button" class="list-group-item bg-info"><i class="fas fa-toolbox"></i> Vật Tư</a>
-			<a href="" role="button" class="list-group-item bg-info"><i class="fas fa-project-diagram"></i> Phòng Ban</a>
+			<a href="{{route('vattu')}}" role="button" class="list-group-item bg-info"><i class="fas fa-toolbox"></i> Vật Tư</a>
 	 	</ul>
 <!--       </div> -->
     </div>
