@@ -98,7 +98,6 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
         Route::put('update',      'VatTuController@update');
         Route::post('store',      'VatTuController@store');
         Route::get('delete/{id}', 'VatTuController@destroy');
-        // Route::post('abc',      'VatTuController@abc');
     });
 });
 

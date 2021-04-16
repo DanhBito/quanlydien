@@ -26,11 +26,13 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-md-4 text-md-right font-weight-bold" >Đơn Vị Tính</label>
-                <select class="col-md-6 form-control" name="postion" id="c-unit_id" class="form-control" name="postion" required>
-                    <option value="">-- Chọn --</option>
-                    {{ Select_Function('donvitinh') }}
-                </select>
+              <label class="col-md-4 text-md-right font-weight-bold" >Đơn Vị Tính</label>
+              <select class="col-md-6 form-control"  name="unit_id" id="c-unit_id" class="form-control" name="postion" required>
+                  <option value="">-- Chọn --</option>
+                  @foreach ($units as $unit)
+                  <option name="unit_id" value="{{$unit->id}}">{{$unit->unit_name}}</option>
+                  @endforeach  
+              </select>
             </div>
 
             <div class="form-group row">
@@ -39,24 +41,28 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-md-4 text-md-right font-weight-bold" >Chất Lượng</label>
-                <select class="col-md-6 form-control" name="postion" id="c-qua_id" class="form-control" name="postion" required>
-                    <option value="">-- Chọn --</option>
-                    {{ Select_Function('chatluong') }}
-                </select>
+              <label class="col-md-4 text-md-right font-weight-bold" >Chất Lượng</label>
+              <select class="col-md-6 form-control" name="qua_id" id="c-qua_id" class="form-control" name="postion" required>
+                  <option value="">-- Chọn --</option>
+                  @foreach ($quas as $qua)
+                  <option name="qua_id" value="{{$qua->id}}">{{$qua->qua_name}}</option>
+                  @endforeach  
+              </select>
             </div>
 
             <div class="form-group row">
-                <label class="col-md-4 text-md-right font-weight-bold" >Nhà Sản Xuất</label>
-                <select class="col-md-6 form-control" name="postion" id="c-pro_id" class="form-control" name="postion" required>
-                    <option value="">-- Chọn --</option>
-                    {{ Select_Function('nhasanxuat') }}
-                </select>
+              <label class="col-md-4 text-md-right font-weight-bold" >Nhà Sản Xuất</label>
+              <select class="col-md-6 form-control"  name="pro_id" id="c-pro_id" class="form-control" name="postion" required>
+                  <option value="">-- Chọn --</option>
+                  @foreach ($pros as $pro)
+                  <option name="pro_id" value="{{$pro->id}}">{{$pro->pro_name}}</option>
+                  @endforeach 
+              </select>
             </div>
 
             <div class="form-group row">
               <div class="col-md-10 text-md-right">
-                <input type="submit" value="Cập Nhật" class="btn btn-primary col-4 btn-submit" data-target="#create"></input>
+                <input type="submit" value="Cập Nhật" class="btn btn-primary col-4 btn-submit"></input>
               </div>
             </div>
           </form>

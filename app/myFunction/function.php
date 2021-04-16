@@ -13,7 +13,7 @@ function Select_Function($data, $select=0){
                 $id = $data['id'];
                 $name = $data['qua_name'];
                 if ($select != 0 && $id == $select) {
-                    echo "<option value='$id' selected = 'true'>$name</option>";
+                    echo "<option name='qua_name' value='$id' selected = 'true'>$name</option>";
                 } else {
                     echo "<option value='$id'>$name</option>";                            
                 }
@@ -25,7 +25,7 @@ function Select_Function($data, $select=0){
                 $id = $data['id'];
                 $name = $data['pro_name'];
                 if ($select != 0 && $id == $select) {
-                    echo "<option value='$id' selected = 'true'>$name</option>";
+                    echo "<option name='pro_name' value='$id' selected = 'true'>$name</option>";
                 } else {
                     echo "<option value='$id'>$name</option>";                            
                 }
@@ -37,7 +37,7 @@ function Select_Function($data, $select=0){
                 $id = $data['id'];
                 $name = $data['unit_name'];
                 if ($select != 0 && $id == $select) {
-                    echo "<option value='$id' selected = 'true'>$name</option>";
+                    echo "<option name='unit_name' value='$id' selected = 'true'>$name</option>";
                 } else {
                     echo "<option value='$id'>$name</option>";                            
                 }

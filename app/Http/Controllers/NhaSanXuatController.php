@@ -66,7 +66,7 @@ class NhaSanXuatController extends Controller
                 'pro_employee' => $request->pro_employee,
                 'dis_id' => $request->dis_id,
             ]);
-            return response()->json($request->pro_name);
+            return response()->json($request->all());
         } catch (\Throwable $th) {
             //throw $th;
             return response()->json("ABC");

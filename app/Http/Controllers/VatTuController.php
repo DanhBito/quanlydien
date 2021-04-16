@@ -8,6 +8,7 @@ use App\Unit;
 use App\Quality;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VatTuController extends Controller
 {
@@ -21,8 +22,11 @@ class VatTuController extends Controller
         $datas = Supplies::with('unit:id,unit_name,unit_simplify')
                         ->with('producer:id,pro_name')
                         ->with('quality:id,qua_name')
-                        ->get();              
-        return view('danhmuc.vattu.danhsach')->with(compact('datas'));
+                        ->get();  
+        $pros = Producer::select('id', 'pro_name')->get();
+        $units = Unit::select('id','unit_name')->get();     
+        $quas = Quality::select('id', 'qua_name')->get()  ;
+        return view('danhmuc.vattu.danhsach')->with(compact('datas','pros','units','quas'));
     }
 
     /**
@@ -32,10 +36,7 @@ class VatTuController extends Controller
      */
     public function create()
     {
-        // $pro = Producer::select('pro_name')->get();
-        // $pro = Unit::select('unit_name')->get();
-        // $pro = Quality::select('qua_name')->get();
-        // return response()->json($pro, Response::HTTP_OK);
+
     }
 
     /**
@@ -46,14 +47,12 @@ class VatTuController extends Controller
      */
     public function store(Request $request)
     {
-        // $validated = $request->validated();
-        // $validated = $request->validated();
         $datas = $request->all();
         try {
-            Supplies::create($request->all());
+            DB::table('supplies')->insert($datas);
             return response()->json($datas, Response::HTTP_OK);
         } catch (\Throwable $th) {
-            return response()->json($datas, Response::HTTP_OK);
+            return response()->json("ABC", Response::HTTP_OK);
         }
 
     }
@@ -75,9 +74,10 @@ class VatTuController extends Controller
      * @param  \App\Supplies  $supplies
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplies $supplies)
+    public function edit(Supplies $supplies, $id)
     {
-        //
+        $datasa = $supplies->where('id', $id)->first();
+        return response()->json($datasa, Response::HTTP_OK);
     }
 
     /**
@@ -89,7 +89,14 @@ class VatTuController extends Controller
      */
     public function update(Request $request, Supplies $supplies)
     {
-        //
+        $update = $request->all();
+
+        try {
+            $supplies->where('id', $request->id)->update($update);
+            return response()->json($request->sup_name, Response::HTTP_OK);
+        } catch (\Throwable $th) {
+
+        }
     }
 
     /**
@@ -98,21 +105,11 @@ class VatTuController extends Controller
      * @param  \App\Supplies  $supplies
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supplies $supplies)
+    public function destroy(Supplies $supplies, $id)
     {
-        //
+        $datas = $supplies->find($id);
+                 $supplies->destroy($id);
+        return response()->json($datas, Response::HTTP_OK);
     }
 
-    public function abc(Request $request)
-    {
-        // $validated = $request->validated();
-
-        return response()->json($request->all(), Response::HTTP_OK);
-        // try {
-        //     Supplies::create($request->all());
-        //     return response()->json($request->all(), Response::HTTP_OK);
-        // } catch (\Throwable $th) {
-        //     return response()->json($request->sup_name, Response::HTTP_OK);
-        // }
-    }
 }
