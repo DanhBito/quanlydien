@@ -132,6 +132,12 @@ Route::prefix('trogiup')->middleware('middlewareCheckLogin')->group(function () 
         Route::post('/', 'LienHeController@store')->name('postlienhe');
     });
 
+    Route::prefix('phanhoi')->group(function () {
+        Route::get('/', 'PhanHoiController@index')->name('phanhoi');
+        Route::post('/', 'PhanHoiController@store')->name('postphanhoi');
+    });
+    
+
 });
 
 
