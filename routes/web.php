@@ -136,7 +136,14 @@ Route::prefix('trogiup')->middleware('middlewareCheckLogin')->group(function () 
         Route::get('/', 'PhanHoiController@index')->name('phanhoi');
         Route::post('/', 'PhanHoiController@store')->name('postphanhoi');
     });
-    
+
+    Route::get('thongtinphanmem', function () {
+        return view('trogiup.thongtinphanmem.thongtinphanmem');
+    })->name('thongtinphanmem');
+
+    Route::get('huongdansudung', function () {
+        return view('trogiup.huongdansudung.huongdansudung');
+    })->name('huongdansudung');
 
 });
 

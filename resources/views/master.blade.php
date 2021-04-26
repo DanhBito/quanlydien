@@ -1,6 +1,6 @@
 @include('head')
 
-<body class="bg-secondary" onmousedown='return false;' onselectstart='return false;'>
+<body class="bg-secondary d-flex flex-column min-vh-100" onmousedown='return false;' onselectstart='return false;'>
     <div class="container px-0 bg-light">
 
         @include('layouts.logo')
