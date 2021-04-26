@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login.login');
-})->name('login')->middleware('middlewareLogin');
+Route::get('/', 'LoginController@index')->name('login')->middleware('middlewareLogin');
+Route::get('quenmatkhau', 'LoginController@forget')->name('forget')->middleware('middlewareLogin');
+Route::post('quenmatkhau', 'LoginController@postforget')->name('postforget');
 
 Route::post('checklogin', 'LoginController@checklogin')->name('checklogin');
 
@@ -35,18 +35,6 @@ Route::post('checkDangKy', 'DangKyController@checkDangKy' )->name('checkDangKy')
 Route::get('thongtincongty', 'ThongTinCongTyController@index')->name('thongtincongty');
 Route::get('suathongtincty', 'ThongTinCongTyController@suathongtincty')->name('suathongtincty');
 Route::post('updatethongtincty', 'ThongTinCongTyController@updatethongtincty')->name('updatethongtincty');
-
-// Route::prefix('hethong')->middleware('middlewareCheckLogin')->group(function () {
-//     Route::get('doimatkhau', 'HeThongController@doimatkhau');
-
-//     Route::get('phanquyen', 'HeThongController@phanquyen');
-
-//     Route::get('suathongtin', 'HeThongController@suathongtin');
-
-//     Route::get('taotaikhoan', 'HeThongController@taotaikhoan');
-
-//     Route::get('thongtin', 'HeThongController@thongtin');
-// });
 
 Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () {
     Route::prefix('khuvuc')->group(function () {
@@ -93,7 +81,8 @@ Route::prefix('danhmuc')->middleware('middlewareCheckLogin')->group(function () 
     });
 
     Route::prefix('vattu')->group(function () {
-        Route::get('index',       'VatTuController@index')->name('vattu');
+        Route::get('/index',       'VatTuController@index')->name('vattu');
+        Route::get('abc',        'VatTuController@abc')->name('abcd');
         Route::get('edit/{id}',   'VatTuController@edit');
         Route::put('update',      'VatTuController@update');
         Route::post('store',      'VatTuController@store');
@@ -135,14 +124,25 @@ Route::prefix('chucnang')->middleware('middlewareCheckLogin')->group(function ()
     Route::get('thongke','ThongKeController@danhsach');
 });
 
-Route::get('demo', function () {
-    $data = App\User::find(1)->nhanvien->toArray();
-    var_dump($data);
+Route::prefix('trogiup')->middleware('middlewareCheckLogin')->group(function () {
+
+    Route::prefix('lienhe')->group(function () {
+        Route::get('/', 'LienHeController@index')->name('lienhe');
+
+        Route::post('/', 'LienHeController@store')->name('postlienhe');
+    });
+
 });
 
-Route::get('abc', function(){
-    return view('getdata');
-})->name('abc')->middleware('middlewareCheckLogin');
+
+// Route::get('demo', function () {
+//     $data = App\User::find(1)->nhanvien->toArray();
+//     var_dump($data);
+// });
+
+// Route::get('abc', function(){
+//     return view('getdata');
+// })->name('abc')->middleware('middlewareCheckLogin');
 
 
 // Route::get('login', 'LoginController@index',function(){

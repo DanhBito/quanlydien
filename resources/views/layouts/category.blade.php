@@ -46,7 +46,7 @@
 <!--       <div class="card-body"> -->
         <ul class="list-group list-group-horizontal">
 		    <a href="" role="button" class="list-group-item bg-info"><i class="far fa-question-circle"></i> Hướng Dẫn Sử Dụng</a>
-		    <a href="" role="button" class="list-group-item bg-info"><i class="fas fa-phone-alt"></i> Liên Hệ</a>
+			<a href="{{route('lienhe')}}" role="button" class="list-group-item bg-info"><i class="fas fa-phone-alt"></i> Liên Hệ</a>
 		    <a href="" role="button" class="list-group-item bg-info"><i class="far fa-comments"></i> Phản Hồi</a>
 		    <a href="" role="button" class="list-group-item bg-info"><i class="far fa-file-alt"></i> Thông Tin Phần Mềm</a>
 	 	</ul>

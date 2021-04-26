@@ -9,7 +9,7 @@ class Supplies extends Model
     protected $table = 'supplies';
 
     protected $fillable = [
-         'sup_name', 'sup_price', 'unit_id', 'qua_id', 'pro_id',
+         'sup_name', 'sup_amount','sup_price', 'unit_id', 'qua_id', 'pro_id', 
     ];
 
     public function unit()

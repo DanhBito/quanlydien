@@ -1,7 +1,7 @@
 @include('head')
 
 <body class="bg-secondary">
-    <div class="container pr-0 pl-0 bg-light">
+    <div class="container px-0 bg-light">
 
         @include('layouts.logo')
 
@@ -9,17 +9,16 @@
 
         @include('layouts.category')
         <div class="main ">
-            <!-- @yield('main') -->
             @yield('content')
         </div>
 
        
     </div>
+    @stack('scripts')
     @include('layouts.footer')
-
-    
-
-</body>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+</body></html>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

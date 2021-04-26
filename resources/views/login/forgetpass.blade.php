@@ -32,6 +32,14 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+        {{-- Font-Awesome --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -114,55 +122,36 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Đăng Nhập</div>
+
+                    <div class="card-header">
+                        Quên Mật Khẩu</div>
                     <div class="card-body">
-                        
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                    @foreach ($errors->all() as $err)
-                                        {{ $err }}
-                                    @endforeach
-                            </div>
-                         @endif
 
-                        @if (session('alert'))
+                        @if (session('alert_error'))
                             <div class="alert alert-danger">
-                                {{session('alert')}}
+                                {{session('alert_error')}}
                             </div>
-                        @endif    
+                        @elseif (session('alert_success'))
+                            <div class="alert alert-success">
+                                {{session('alert_success')}}
+                            </div>
+                        @endif
 
-                        <form action="{{ route('checklogin') }}" method="post">
+                        <form action="{{ route('postforget') }}" method="post">
                             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             <div class="form-group row">
-                                <label for="username" class="col-md-4 col-form-label text-md-right">Username:</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="username" class="form-control" name="username" required autofocus>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">Mật Khẩu</label>
-                                <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember"> Ghi Nhớ Đăng Nhập
-                                        </label>
-                                    </div>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">Email:</label>
+                                <div class="col-md-5">
+                                    <input type="text" id="email" class="form-control" name="email" required autofocus>
                                 </div>
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Đăng Nhập
+                                <button type="submit" class="btn btn-primary mt-2">
+                                    Lấy Mật Khẩu
                                 </button>
-                                <a href="{{ route('postforget') }}" class="btn btn-link">
-                                    Quên Mật Khẩu?
+                                <a href="{{ route('postforget') }}" class="btn btn-link mt-2">
+                                    Thử Cách Khác?
                                 </a>
                             </div>
                     </div>

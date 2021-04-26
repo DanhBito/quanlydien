@@ -9,6 +9,8 @@ use App\ChucVu;
 use APP\NhanVien;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\LoginPost;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -56,5 +58,35 @@ class LoginController extends Controller
         Auth::logout();
         session()->flush();
         return redirect(route('login'));
+    }
+
+    public function forget(){
+        return view('login.forgetpass');
+    }
+
+    public function postforget(Request $request){
+        $data = User::where('email', $request->email)->first()->toArray();
+        // var_dump($data);die;
+        if($data){
+            $data['password'] = $data['username'].rand(1000,99999);
+            // var_dump($data['id']);die;
+            try {
+                User::find($data['id'])->update(['password'=> Hash::make($data['password'])]);
+
+                Mail::send('login.sendEmailPass',$data ,function($mail) use($data, $request){
+                    $mail->from('abc2012199@gmail.com', 'Support EVN');
+                    $mail->to($data['email'], $data['fullname'])->subject('Forget Pass');
+                });
+
+                return redirect()->back()->with('alert_success','Mật Khẩu Đã Gửi Đến Email Này!');
+            } catch (\Throwable $th) {
+                return redirect()->back()->with('alert_error','Không Tìm Thấy Người Dùng Có Email Này!!');
+            }
+        }else{
+            return redirect()->back()->with('alert_error','Không Tìm Thấy Người Dùng Có Email Này!');
+        }
+
+        // // var_dump($data->password);die;
+        // return redirect(back())->with('alert_success','Mật Khẩu Đã Thay Đổi Thành Công'.$data->password);
     }
 }

@@ -30,7 +30,7 @@ class RegistrationPost extends FormRequest
             'username'          => 'unique:users,username',
             'birth'             => "before:".Carbon::now()->subYears(18),
             'phone_number'      => 'starts_with:0',
-            'email'             => 'required_with:gmail.com',
+            'email'             => 'unique:users,email|required_with:gmail.com',
             'date_joining'      => 'before_or_equal:today',
             'password'          => 'min:6|max:32',
             'password_confirm'  => 'same:password',
@@ -42,6 +42,7 @@ class RegistrationPost extends FormRequest
         return  [
             'username.unique'              => 'Đã Tồn Tại Tên Đăng Nhập ',
             'email.required_with'          => 'Không Đúng Mẫu Email',
+            'email.unique'                 => 'Đã Tồn Tại Email Này Ở Một Người Dùng Khác!',
             'birth.before'                 => 'Bạn Chưa Đủ 18 Tuổi !',
             'phone_number.starts_with'     => 'Số Điện Thoại Phải Bắt Đầu Bằng Số 0',
             'date_joining.before_or_equal' => 'Ngày Vào Làm Phải Trước Hoặc Bằng Ngày Hôm Nay !',
