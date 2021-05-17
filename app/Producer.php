@@ -22,4 +22,9 @@ class Producer extends Model
     {
         return $this->hasMany( 'App\Supplies' , 'pro_id', 'id' );
     }
+
+    public function producer_import()
+    {
+        return $this->hasMany( 'App\Import' , 'pro_id', 'id' );
+    }
 }

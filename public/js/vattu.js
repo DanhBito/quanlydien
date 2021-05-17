@@ -4,6 +4,18 @@ $.ajaxSetup({
 	        }
 });
 
+
+          
+    // $('#myTable').DataTable({
+    //     processing: true,
+    //     serverSide: true,
+    //     ajax: "{{ route('abcd') }}",
+    //     columns: [
+    //         {data: 'action', name: 'action', orderable: false, searchable: false},
+    //     ]
+    // });
+
+
 $(document).ready( function () {
     $('#myTable').DataTable();
     });
